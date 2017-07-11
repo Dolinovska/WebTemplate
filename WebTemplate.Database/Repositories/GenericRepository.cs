@@ -5,7 +5,7 @@ using System.Linq;
 using WebTemplate.IRepositories;
 using WebTemplate.Models;
 
-namespace WebTemplate.Database
+namespace WebTemplate.Database.Repositories
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : HasIdentity
 

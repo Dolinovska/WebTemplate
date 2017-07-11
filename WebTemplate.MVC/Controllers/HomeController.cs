@@ -1,26 +1,21 @@
 ﻿using System.Web.Mvc;
+using WebTemplate.IServices;
 
 namespace WebTemplate.MVC.Controllers
 {
-    public class HomeController : Controller
+    public class TestModelController : Controller
     {
-        public ActionResult Index()
+        private ITestModelService _testModelService;
+
+        public TestModelController(ITestModelService testModelService)
         {
-            return View();
+            _testModelService = testModelService;
         }
 
-        public ActionResult About()
+        public ViewResult Index()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var models = _testModelService.GetAll();
+            return View(models);
         }
     }
 }

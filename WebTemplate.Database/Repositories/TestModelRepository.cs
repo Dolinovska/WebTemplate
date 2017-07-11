@@ -2,7 +2,7 @@ using System.Data.Entity;
 using WebTemplate.IRepositories;
 using WebTemplate.Models;
 
-namespace WebTemplate.Database
+namespace WebTemplate.Database.Repositories
 {
     public class TestModelRepository : GenericRepository<TestModel>, ITestModelRepository
     {
