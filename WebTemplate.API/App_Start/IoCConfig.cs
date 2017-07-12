@@ -13,6 +13,7 @@ namespace WebTemplate.API
         {
             // Get IoC container
             var container = TinyIoCContainer.Current;
+            container.AutoRegister(DuplicateImplementationActions.Fail);
 
             // Set Web API dep resolver
             GlobalConfiguration.Configuration.DependencyResolver = new TinyIocWebApiDependencyResolver(container);

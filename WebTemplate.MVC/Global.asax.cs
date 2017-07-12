@@ -16,7 +16,7 @@ namespace WebTemplate.MVC
             IoCConfig.Register();
             AutoMapperConfig.Initialize();
 
-            System.Data.Entity.Database.SetInitializer(new ProjectContextInitializer());
+            //System.Data.Entity.Database.SetInitializer(new WebTemplateContextInitializer());
         }
     }
 }

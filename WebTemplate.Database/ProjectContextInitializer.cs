@@ -3,16 +3,15 @@ using WebTemplate.Models;
 
 namespace WebTemplate.Database
 {
-    public class ProjectContextInitializer : DropCreateDatabaseIfModelChanges<ProjectContext>
+    public class WebTemplateContextInitializer : DropCreateDatabaseIfModelChanges<WebTemplateContext>
     {
-        public override void InitializeDatabase(ProjectContext context)
+        protected override void Seed(WebTemplateContext context)
         {
             context.TestModels.Add(new TestModel { Property1 = "P1_1", Property2 = "P2_1" });
             context.TestModels.Add(new TestModel { Property1 = "P1_2", Property2 = "P2_2" });
             context.TestModels.Add(new TestModel { Property1 = "P1_3", Property2 = "P2_3" });
             context.SaveChanges();
 
-            base.InitializeDatabase(context);
         }
     }
 }

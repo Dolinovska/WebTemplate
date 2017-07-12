@@ -7,7 +7,7 @@ using WebTemplate.Models;
 
 namespace WebTemplate.Database.Repositories
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : HasIdentity
+    public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
 
     {
         private readonly DbContext _context;
@@ -24,9 +24,9 @@ namespace WebTemplate.Database.Repositories
             _dbSet.Add(entity);
         }
 
-        public virtual T Find(int id)
+        public virtual T Find(params object[] keyValues)
         {
-            return _dbSet.Find(id);
+            return _dbSet.Find(keyValues);
         }
 
         public virtual IEnumerable<T> GetAll()
@@ -44,7 +44,7 @@ namespace WebTemplate.Database.Repositories
             _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Remove(T entity)
+        public virtual void Delete(T entity)
         {
             _dbSet.Remove(entity);
         }

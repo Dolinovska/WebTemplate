@@ -7,10 +7,10 @@ namespace WebTemplate.IServices
     public interface IGenericService<T>
     {
         void Create(T entity);
-        T Find(int id);
+        T Find(params object[] keyValues);
         IEnumerable<T> GetAll();
         IEnumerable<T> Find(Func<T, bool> predicate);
         void Update(T entity);
-        void Remove(T entity);
+        void Delete(T entity);
     }
 }

@@ -19,9 +19,9 @@ namespace WebTemplate.Services
             Repository.Create(entity);
         }
 
-        public virtual T Find(int id)
+        public virtual T Find(params object[] keyValues)
         {
-            return Repository.Find(id);
+            return Repository.Find(keyValues);
         }
 
         public virtual IEnumerable<T> GetAll()
@@ -39,9 +39,9 @@ namespace WebTemplate.Services
             Repository.Update(entity);
         }
 
-        public void Remove(T entity)
+        public void Delete(T entity)
         {
-            Repository.Remove(entity);
+            Repository.Delete(entity);
         }
     }
 }

@@ -4,9 +4,9 @@ using WebTemplate.Models;
 
 namespace WebTemplate.Database
 {
-    public class ProjectContext : DbContext
+    public class WebTemplateContext : DbContext
     {
-        public ProjectContext()
+        public WebTemplateContext()
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;

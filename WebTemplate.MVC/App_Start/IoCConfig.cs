@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Web.Mvc;
+using AutoMapper;
 using TinyIoC;
 using WebTemplate.Database;
 using WebTemplate.Database.Repositories;
@@ -21,43 +19,10 @@ namespace WebTemplate.MVC
 
             container.Register<ITestModelService, TestModelService>().AsMultiInstance();
             container.Register<ITestModelRepository, TestModelRepository>().AsMultiInstance();
-            container.Register<DbContext, ProjectContext>().AsMultiInstance();
-
+            container.Register<DbContext, WebTemplateContext>().AsMultiInstance();
 
             // Set Web API dep resolver
             DependencyResolver.SetResolver(new TinyIocMvcDependencyResolver(container));
-        }
-    }
-
-    public class TinyIocMvcDependencyResolver : IDependencyResolver
-    {
-        private readonly TinyIoCContainer _container;
-
-        public TinyIocMvcDependencyResolver(TinyIoCContainer container)
-        {
-            _container = container;
-        }
-        public object GetService(Type serviceType)
-        {
-            try
-            {
-                return _container.Resolve(serviceType);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-        public IEnumerable<object> GetServices(Type serviceType)
-        {
-            try
-            {
-                return _container.ResolveAll(serviceType, true);
-            }
-            catch (Exception)
-            {
-                return Enumerable.Empty<object>();
-            }
         }
     }
 }

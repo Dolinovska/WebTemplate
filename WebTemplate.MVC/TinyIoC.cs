@@ -245,11 +245,11 @@ namespace TinyIoC
             }
         }
 
-        public bool Remove(TKey key)
+        public bool Delete(TKey key)
         {
             lock (_Padlock)
             {
-                return _Dictionary.Remove(key);
+                return _Dictionary.Delete(key);
             }
         }
 
