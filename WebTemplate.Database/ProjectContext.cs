@@ -1,23 +1,33 @@
 ﻿using System.Data.Entity;
-using WebTemplate.Database.Configurations;
-using WebTemplate.Models;
 
 namespace WebTemplate.Database
 {
+    using WebTemplate.Database.Models;
+
     public class WebTemplateContext : DbContext
     {
         public WebTemplateContext()
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = true;
         }
 
-        public DbSet<TestModel> TestModels { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Moved all Student related configuration to StudentEntityConfiguration class
-            modelBuilder.Configurations.Add(new TestModelConfiguration());
+            // one to many config
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.Products)
+                .WithRequired(p => p.Category)
+                .WillCascadeOnDelete(true);
+
+            // many to many config
+            modelBuilder.Entity<Product>()
+                .HasMany(c => c.Tags)
+                .WithMany(t => t.Products);
         }
     }
 }

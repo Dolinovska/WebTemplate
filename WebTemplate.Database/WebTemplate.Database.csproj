@@ -49,22 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\TestModelConfiguration.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="ProjectContext.cs" />
     <Compile Include="ProjectContextInitializer.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\TestModelRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebTemplate.IRepositories\WebTemplate.IRepositories.csproj">
-      <Project>{644D575C-4AC6-4C64-9E5B-C6396BFABBB3}</Project>
-      <Name>WebTemplate.IRepositories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebTemplate.Models\WebTemplate.Models.csproj">
-      <Project>{3407D963-9C62-4BFC-ABC3-C489408198C6}</Project>
-      <Name>WebTemplate.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

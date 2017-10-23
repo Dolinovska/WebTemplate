@@ -12,7 +12,7 @@ namespace WebTemplate.MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "TestModel", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Category", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

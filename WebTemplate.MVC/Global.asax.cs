@@ -13,10 +13,8 @@ namespace WebTemplate.MVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            IoCConfig.Register();
-            AutoMapperConfig.Initialize();
 
-            //System.Data.Entity.Database.SetInitializer(new WebTemplateContextInitializer());
+            System.Data.Entity.Database.SetInitializer(new WebTemplateContextInitializer());
         }
     }
 }
