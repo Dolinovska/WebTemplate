@@ -4,14 +4,17 @@ using System.Web.Mvc;
 
 namespace WebTemplate.MVC.Controllers
 {
+    using Microsoft.Ajax.Utilities;
+
     using WebTemplate.Database;
     using WebTemplate.Database.Models;
+    using WebTemplate.MVC.ViewModels.Categories;
 
-    public class CategoryController : Controller
+    public class CategoriesController : Controller
     {
         private readonly Repository _repository;
 
-        public CategoryController()
+        public CategoriesController()
         {
             _repository = new Repository();
         }
@@ -67,20 +70,33 @@ namespace WebTemplate.MVC.Controllers
             {
                 return HttpNotFound();
             }
-            return View(category);
+
+            var allProducts = _repository.GetAll<Product>();
+            var categoryEditModel = new CategoryEditModel(category, allProducts);
+            return View(categoryEditModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Category category)
+        public ActionResult Edit(CategoryEditModel categoryEditModel)
         {
+            var category = this._repository.Find<Category>(categoryEditModel.Id);
+
             if (ModelState.IsValid)
             {
+                category.Name = categoryEditModel.Name;
+                category.Products.Clear();
+
+                categoryEditModel.SelectedProductIds.Select(id => _repository.Find<Product>(id))
+                      .ForEach(p => category.Products.Add(p));
+
                 _repository.Update(category);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            var allProducts = _repository.GetAll<Product>();
+            categoryEditModel = new CategoryEditModel(category, allProducts);
+            return View(categoryEditModel);
         }
 
         public ActionResult Delete(int? id)
