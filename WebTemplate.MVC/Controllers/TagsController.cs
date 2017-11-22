@@ -1,30 +1,38 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using WebTemplate.Database;
 using WebTemplate.Database.Models;
+using WebTemplate.MVC.ViewModels.Categories;
+using WebTemplate.MVC.ViewModels.Products;
 
 namespace WebTemplate.MVC.Controllers
 {
+    using WebTemplate.MVC.ViewModels.Tags;
+
     public class TagsController : Controller
     {
-        private WebTemplateContext db = new WebTemplateContext();
+        private readonly Repository _repository;
 
-        // GET: Tags
-        public ActionResult Index()
+        public TagsController()
         {
-            return View(db.Tags.ToList());
+            _repository = new Repository();
         }
 
-        // GET: Tags/Details/5
+        public ActionResult Index()
+        {
+            var tags = _repository.GetAll<Tag>().ToList();
+            return View(tags);
+        }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var tag = db.Tags.Find(id);
+
+            var tag = _repository.Find<Tag>(id);
             if (tag == null)
             {
                 return HttpNotFound();
@@ -32,68 +40,71 @@ namespace WebTemplate.MVC.Controllers
             return View(tag);
         }
 
-        // GET: Tags/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Tags/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Tag tag)
+        public ActionResult Create(Tag tag)
         {
             if (ModelState.IsValid)
             {
-                db.Tags.Add(tag);
-                db.SaveChanges();
+                _repository.Add(tag);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(tag);
         }
 
-        // GET: Tags/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tag tag = db.Tags.Find(id);
+            var tag = _repository.Find<Tag>(id);
             if (tag == null)
             {
                 return HttpNotFound();
             }
-            return View(tag);
+            var allProducts = _repository.GetAll<Product>();
+            var tagEditModel = new TagEditModel(tag, allProducts);
+            return View(tagEditModel);
         }
 
-        // POST: Tags/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Tag tag)
+        public ActionResult Edit(TagEditModel tagEditModel)
         {
+            var tag = this._repository.Find<Tag>(tagEditModel.Id);
+
             if (ModelState.IsValid)
             {
-                db.Entry(tag).State = EntityState.Modified;
-                db.SaveChanges();
+                tag.Name = tagEditModel.Name;
+                tag.Products.Clear();
+
+                tagEditModel.SelectedProductsIds.Select(id => _repository.Find<Product>(id)).ToList()
+                    .ForEach(p => tag.Products.Add(p));
+
+                _repository.Update(tag);
+                _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tag);
+            var allProducts = _repository.GetAll<Product>();
+            tagEditModel = new TagEditModel(tag, allProducts);
+            return View(tagEditModel);
         }
 
-        // GET: Tags/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tag tag = db.Tags.Find(id);
+            var tag = _repository.Find<Tag>(id);
             if (tag == null)
             {
                 return HttpNotFound();
@@ -101,24 +112,14 @@ namespace WebTemplate.MVC.Controllers
             return View(tag);
         }
 
-        // POST: Tags/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tag tag = db.Tags.Find(id);
-            db.Tags.Remove(tag);
-            db.SaveChanges();
+            var tag = _repository.Find<Tag>(id);
+            _repository.Remove(tag);
+            _repository.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

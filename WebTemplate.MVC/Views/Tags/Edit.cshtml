@@ -1,5 +1,4 @@
-﻿@model WebTemplate.Database.Models.Tag
-
+﻿@model WebTemplate.MVC.ViewModels.Tags.TagEditModel
 @{
     ViewBag.Title = "Edit";
 }
@@ -10,9 +9,9 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Tag</h4>
+        <h4>Product</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -24,6 +23,14 @@
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedProductsIds, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxList("SelectedProductsIds", Model.ProductsCheckboxes)
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
