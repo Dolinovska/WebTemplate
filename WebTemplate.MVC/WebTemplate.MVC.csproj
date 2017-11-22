@@ -138,6 +138,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Categories\CategoryEditModel.cs" />
     <Compile Include="ViewModels\Checkbox.cs" />
+    <Compile Include="ViewModels\Products\ProductEditModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -205,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="ViewModels\Tags\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

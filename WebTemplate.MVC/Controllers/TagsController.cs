@@ -24,7 +24,7 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tag tag = db.Tags.Find(id);
+            var tag = db.Tags.Find(id);
             if (tag == null)
             {
                 return HttpNotFound();

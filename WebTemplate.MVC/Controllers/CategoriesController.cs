@@ -1,15 +1,12 @@
 ﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using WebTemplate.Database;
+using WebTemplate.Database.Models;
+using WebTemplate.MVC.ViewModels.Categories;
 
 namespace WebTemplate.MVC.Controllers
 {
-    using Microsoft.Ajax.Utilities;
-
-    using WebTemplate.Database;
-    using WebTemplate.Database.Models;
-    using WebTemplate.MVC.ViewModels.Categories;
-
     public class CategoriesController : Controller
     {
         private readonly Repository _repository;
@@ -71,8 +68,7 @@ namespace WebTemplate.MVC.Controllers
                 return HttpNotFound();
             }
 
-            var allProducts = _repository.GetAll<Product>();
-            var categoryEditModel = new CategoryEditModel(category, allProducts);
+            var categoryEditModel = new CategoryEditModel(category);
             return View(categoryEditModel);
         }
 
@@ -85,17 +81,11 @@ namespace WebTemplate.MVC.Controllers
             if (ModelState.IsValid)
             {
                 category.Name = categoryEditModel.Name;
-                category.Products.Clear();
-
-                categoryEditModel.SelectedProductIds.Select(id => _repository.Find<Product>(id))
-                      .ForEach(p => category.Products.Add(p));
-
                 _repository.Update(category);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var allProducts = _repository.GetAll<Product>();
-            categoryEditModel = new CategoryEditModel(category, allProducts);
+            categoryEditModel = new CategoryEditModel(category);
             return View(categoryEditModel);
         }
 

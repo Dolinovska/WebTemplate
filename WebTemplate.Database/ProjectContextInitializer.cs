@@ -6,7 +6,7 @@ namespace WebTemplate.Database
 
     using WebTemplate.Database.Models;
 
-    public class WebTemplateContextInitializer : DropCreateDatabaseAlways<WebTemplateContext>
+    public class WebTemplateContextInitializer : DropCreateDatabaseIfModelChanges<WebTemplateContext>
     {
         protected override void Seed(WebTemplateContext context)
         {

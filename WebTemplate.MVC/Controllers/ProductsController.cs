@@ -6,6 +6,9 @@ using WebTemplate.Database.Models;
 
 namespace WebTemplate.MVC.Controllers
 {
+    using WebTemplate.MVC.ViewModels.Categories;
+    using WebTemplate.MVC.ViewModels.Products;
+
     public class ProductsController : Controller
     {
         private readonly Repository _repository;
@@ -66,20 +69,35 @@ namespace WebTemplate.MVC.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+            var allTags = _repository.GetAll<Tag>();
+            var productEditModel = new ProductEditModel(product, allTags);
+            return View(productEditModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(ProductEditModel productEditModel)
         {
+            var product = this._repository.Find<Product>(productEditModel.Id);
+
             if (ModelState.IsValid)
             {
+                product.Name = productEditModel.Name;
+                product.Tags.Clear();
+
+                /*_repository.Update(product);
+                _repository.SaveChanges();*/
+
+                productEditModel.SelectedTagsIds.Select(id => _repository.Find<Tag>(id)).ToList()
+                    .ForEach(t => product.Tags.Add(t));
+
                 _repository.Update(product);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(product);
+            var allTags = _repository.GetAll<Tag>();
+            productEditModel = new ProductEditModel(product, allTags);
+            return View(productEditModel);
         }
 
         public ActionResult Delete(int? id)
