@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -142,10 +143,16 @@
     <Compile Include="ViewModels\Tags\ProductEditModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\iconic\css\iconmonstr-iconic-font.css" />
+    <Content Include="Content\iconic\css\iconmonstr-iconic-font.min.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\vendor.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -158,8 +165,80 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\avatars\user-01.jpg" />
+    <Content Include="Images\avatars\user-02.jpg" />
+    <Content Include="Images\avatars\user-03.jpg" />
+    <Content Include="Images\avatars\user-04.jpg" />
+    <Content Include="Images\avatars\user-05.jpg" />
+    <Content Include="Images\blog\blog-bg-01.jpg" />
+    <Content Include="Images\blog\blog-bg-02.jpg" />
+    <Content Include="Images\contact-bg.jpg" />
+    <Content Include="Images\count-bg.jpg" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\hero-bg.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\photoswipe\default-skin.png" />
+    <Content Include="Images\photoswipe\default-skin.svg" />
+    <Content Include="Images\photoswipe\preloader.gif" />
+    <Content Include="Images\portfolio\beetle%402x.jpg" />
+    <Content Include="Images\portfolio\beetle.jpg" />
+    <Content Include="Images\portfolio\gallery\g-beetle.jpg" />
+    <Content Include="Images\portfolio\gallery\g-bicycle.jpg" />
+    <Content Include="Images\portfolio\gallery\g-liberty.jpg" />
+    <Content Include="Images\portfolio\gallery\g-lighthouse.jpg" />
+    <Content Include="Images\portfolio\gallery\g-minimalismo.jpg" />
+    <Content Include="Images\portfolio\gallery\g-salad.jpg" />
+    <Content Include="Images\portfolio\gallery\g-shutterbug.jpg" />
+    <Content Include="Images\portfolio\gallery\g-skaterboy.jpg" />
+    <Content Include="Images\portfolio\gallery\g-woodcraft.jpg" />
+    <Content Include="Images\portfolio\liberty%402x.jpg" />
+    <Content Include="Images\portfolio\liberty.jpg" />
+    <Content Include="Images\portfolio\lighthouse%402x.jpg" />
+    <Content Include="Images\portfolio\lighthouse.jpg" />
+    <Content Include="Images\portfolio\minimalismo%402x.jpg" />
+    <Content Include="Images\portfolio\minimalismo.jpg" />
+    <Content Include="Images\portfolio\salad%402x.jpg" />
+    <Content Include="Images\portfolio\salad.jpg" />
+    <Content Include="Images\portfolio\shutterbug%402x.jpg" />
+    <Content Include="Images\portfolio\shutterbug.jpg" />
+    <Content Include="Images\portfolio\skaterboy%402x.jpg" />
+    <Content Include="Images\portfolio\skaterboy.jpg" />
+    <Content Include="Images\portfolio\woodcraft%402x.jpg" />
+    <Content Include="Images\portfolio\woodcraft.jpg" />
+    <Content Include="Images\sample-image.jpg" />
+    <Content Include="Images\testimonial-bg.jpg" />
+    <Content Include="Images\wheel-1000.jpg" />
+    <Content Include="Images\wheel-500.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\librebaskerville-bold-webfont.woff" />
+    <Content Include="fonts\librebaskerville-bold-webfont.woff2" />
+    <Content Include="fonts\librebaskerville-italic-webfont.woff" />
+    <Content Include="fonts\librebaskerville-italic-webfont.woff2" />
+    <Content Include="fonts\librebaskerville-regular-webfont.woff" />
+    <Content Include="fonts\librebaskerville-regular-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-black-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-black-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-bold-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-bold-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-extrabold-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-extrabold-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-extralight-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-extralight-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-light-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-light-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-medium-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-medium-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-regular-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-regular-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-semibold-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-semibold-webfont.woff2" />
+    <Content Include="fonts\montserrat\montserrat-thin-webfont.woff" />
+    <Content Include="fonts\montserrat\montserrat-thin-webfont.woff2" />
+    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.eot" />
+    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.ttf" />
+    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.woff" />
+    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.woff2" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -172,13 +251,19 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\pace.min.js" />
+    <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -204,6 +289,10 @@
     <Content Include="Views\Tags\Details.cshtml" />
     <Content Include="Views\Tags\Edit.cshtml" />
     <Content Include="Views\Tags\Index.cshtml" />
+    <Content Include="Views\Home\_Blog.cshtml" />
+    <Content Include="Views\Home\_BlogSingle.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Styles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
