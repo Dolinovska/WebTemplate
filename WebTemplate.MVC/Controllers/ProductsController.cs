@@ -70,7 +70,8 @@ namespace WebTemplate.MVC.Controllers
                 return HttpNotFound();
             }
             var allTags = _repository.GetAll<Tag>();
-            var productEditModel = new ProductEditModel(product, allTags);
+            var allCategories = _repository.GetAll<Category>();
+            var productEditModel = new ProductEditModel(product, allCategories, allTags);
             return View(productEditModel);
         }
 
@@ -85,9 +86,6 @@ namespace WebTemplate.MVC.Controllers
                 product.Name = productEditModel.Name;
                 product.Tags.Clear();
 
-                /*_repository.Update(product);
-                _repository.SaveChanges();*/
-
                 productEditModel.SelectedTagsIds.Select(id => _repository.Find<Tag>(id)).ToList()
                     .ForEach(t => product.Tags.Add(t));
 
@@ -96,7 +94,8 @@ namespace WebTemplate.MVC.Controllers
                 return RedirectToAction("Index");
             }
             var allTags = _repository.GetAll<Tag>();
-            productEditModel = new ProductEditModel(product, allTags);
+            var allCategories = _repository.GetAll<Category>();
+            productEditModel = new ProductEditModel(product, allCategories, allTags);
             return View(productEditModel);
         }
 
