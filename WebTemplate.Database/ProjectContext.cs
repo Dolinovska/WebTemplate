@@ -14,7 +14,6 @@ namespace WebTemplate.Database
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<News> News { get; set; }
-        public DbSet<Tag> Tags { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,11 +22,6 @@ namespace WebTemplate.Database
                 .HasMany(c => c.News)
                 .WithRequired(p => p.Category)
                 .WillCascadeOnDelete(true);
-
-            // many to many config
-            modelBuilder.Entity<News>()
-                .HasMany(c => c.Tags)
-                .WithMany(t => t.News);
         }
     }
 }

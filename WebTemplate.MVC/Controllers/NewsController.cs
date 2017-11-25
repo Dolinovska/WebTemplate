@@ -68,9 +68,8 @@ namespace WebTemplate.MVC.Controllers
             {
                 return HttpNotFound();
             }
-            var allTags = _repository.GetAll<Tag>();
             var allCategories = _repository.GetAll<Category>();
-            var newsEditModel = new NewsEditModel(news, allCategories, allTags);
+            var newsEditModel = new NewsEditModel(news, allCategories);
             return View(newsEditModel);
         }
 
@@ -83,18 +82,12 @@ namespace WebTemplate.MVC.Controllers
             if (ModelState.IsValid)
             {
                 news.Title = newsEditModel.Title;
-                news.Tags.Clear();
-
-                newsEditModel.SelectedTagsIds.Select(id => _repository.Find<Tag>(id)).ToList()
-                    .ForEach(t => news.Tags.Add(t));
-
                 _repository.Update(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var allTags = _repository.GetAll<Tag>();
             var allCategories = _repository.GetAll<Category>();
-            newsEditModel = new NewsEditModel(news, allCategories, allTags);
+            newsEditModel = new NewsEditModel(news, allCategories);
             return View(newsEditModel);
         }
 

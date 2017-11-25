@@ -14,6 +14,6 @@
 
         public virtual Category Category { get; set; }
 
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual string Tags { get; set; }
     }
 }

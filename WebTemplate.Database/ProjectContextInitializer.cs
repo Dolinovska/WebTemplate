@@ -21,15 +21,6 @@ namespace WebTemplate.Database
             category1.News = new List<News> { news11, news12 };
             category2.News = new List<News> { news21, news22 };
 
-            var tag1 = new Tag { Name = "Tag 1" };
-            var tag2 = new Tag { Name = "Tag 2" };
-
-            news11.Tags = new List<Tag> { tag1 };
-            news12.Tags = new List<Tag> { tag2 };
-
-            news21.Tags = new List<Tag> { tag1, tag2 };
-            news22.Tags = new List<Tag> { tag1, tag2 };
-
 
             context.Categories.Add(category1);
             context.Categories.Add(category2);

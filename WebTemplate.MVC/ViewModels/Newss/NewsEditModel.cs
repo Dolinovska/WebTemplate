@@ -17,8 +17,8 @@
         public string Text { get; set; }
 
         [Display(Name = "Tags")]
-        public int[] SelectedTagsIds { get; set; }
-        public IEnumerable<Checkbox> TagsCheckboxes { get; set; }
+        public string Tags { get; set; }
+
 
         [Display(Name = "Category")]
         public int SelectedCategory { get; set; }
@@ -28,15 +28,12 @@
         {
         }
 
-        public NewsEditModel(News news, IEnumerable<Category> allCategories, IEnumerable<Tag> allTags)
+        public NewsEditModel(News news, IEnumerable<Category> allCategories)
         {
             this.Id = news.Id;
             this.Title = news.Title;
             this.Text = news.Text;
-
-            this.TagsCheckboxes = allTags.Select(p => new Checkbox(p.Name, p.Id.ToString(), false)).ToList();
-            this.TagsCheckboxes.Where(tc => news.Tags.Any(t => t.Name.Equals(tc.Name, StringComparison.OrdinalIgnoreCase))).ToList()
-                .ForEach(c => c.IsChecked = true);
+            this.Tags = news.Tags;
 
             this.Categories = allCategories.Select(c => new SelectListItem
             {
