@@ -1,6 +1,6 @@
 ﻿@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
 <!DOCTYPE html>
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
@@ -29,8 +29,8 @@
     <!-- script
     ================================================== -->
     @*<script src="~/Scripts/modernizr.js"></script>
-    <script src="~/Scripts/pace.min.js"></script>
-    <script src="~/Scripts/main.js"></script>*@
+        <script src="~/Scripts/pace.min.js"></script>
+        <script src="~/Scripts/main.js"></script>*@
 
 
     <!-- favicons
@@ -44,21 +44,27 @@
     <!-- header
     ================================================== -->
     <header class="s-header">
-        <div class="header-logo">
-            <a class="site-logo" href="~/Views/Shared/Index.cshtml"><img src="~/Images/logo.png" alt="Homepage"></a>
-        </div>
-
-        <nav class="header-nav-wrap">
+        @*<div class="row">
+            <h3 class="main-logo">Звістка</h3>
+            @*<a class="site-logo" href="~/Views/Shared/Index.cshtml"><img src="~/Images/logo.png" alt="Homepage"></a>
+        </div>*@
+        <nav class="header-nav-wrap pull-left" style="left: 120px; font-family:'librebaskerville-bold', serif; font-size: 4rem;">
             <ul class="header-nav">
-                <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
-                <li><a class="smoothscroll" href="#about" title="about">About</a></li>
-                <li><a class="smoothscroll" href="#works" title="works">Works</a></li>
-                <li><a class="smoothscroll" href="#blog" title="blog">Blog</a></li>
-                <li><a class="smoothscroll" href="#contact" title="contact">Contact</a></li>
+                <li class="current"><a class="smoothscroll" href="#" title="home">Звістка</a></li>
             </ul>
         </nav>
 
-        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li class="current"><a class="smoothscroll" href="#home" title="home">Головна</a></li>
+                <li><a class="smoothscroll" href="#about" title="about">Про нас</a></li>
+                <li><a class="smoothscroll" href="#works" title="works">Новини</a></li>
+                <li><a class="smoothscroll" href="#blog" title="blog">Блог</a></li>
+                <li><a class="smoothscroll" href="#contact" title="contact">Контакт</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Меню</span></a>
 
     </header> <!-- end s-header -->
     <!-- home
@@ -268,7 +274,7 @@
                 <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
             </div>
         </div>
-    @*<iframe src="https://player.vimeo.com/video/42785517?autoplay=1" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>*@
+        @*<iframe src="https://player.vimeo.com/video/42785517?autoplay=1" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>*@
 
         <div class="row masonry-wrap">
             <div class="masonry">
@@ -278,7 +284,7 @@
                         <div class="item-folio__thumb">
                             <a href="~/Images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
                                 @*<img src="~/Images/portfolio/beetle.jpg"
-                                     srcset="~/Images/portfolio/beetle.jpg 1x, ~/Images/portfolio/beetle@2x.jpg 2x" alt="">*@
+                                    srcset="~/Images/portfolio/beetle.jpg 1x, ~/Images/portfolio/beetle@2x.jpg 2x" alt="">*@
                                 <span class="shadow-overlay"></span>
                             </a>
                         </div>
@@ -820,8 +826,9 @@
         <div class="row">
             <div class="col-full">
 
-                <div class="footer-logo">
-                    <a class="footer-site-logo" href="#0"><img src="~/Images/logo.png" alt="Homepage"></a>
+                <div class="row">
+                    <h3 class="main-logo">Звістка</h3>
+                    @*<a class="site-logo" href="~/Views/Shared/Index.cshtml"><img src="~/Images/logo.png" alt="Homepage"></a>*@
                 </div>
 
                 <ul class="footer-social">
@@ -860,20 +867,6 @@
             </div>
         </div>
 
-        <div class="row footer-bottom">
-
-            <div class="col-twelve">
-                <div class="copyright">
-                    <span>© Copyright Hola 2017</span>
-                    <span>Design by <a href="https://www.styleshout.com/">styleshout</a></span>
-                </div>
-
-                <div class="go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="im im-arrow-up" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-        </div> <!-- end footer-bottom -->
 
     </footer> <!-- end footer -->
     <!-- photoswipe background

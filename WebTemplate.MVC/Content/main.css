@@ -1,73 +1,10 @@
-/* =================================================================== 
- *
- *  Hola v1.0 Main Stylesheet
- *  10-02-2017
- *  ------------------------------------------------------------------
- *
- *  TOC:
- *  # webfonts and iconfonts
- *  # base style overrides
- *      ## links
- *  # typography & general theme styles
- *      ## lists
- *      ## responsive video container
- *      ## floated image
- *      ## tables
- *      ## spacing
- *      ## pace.js styles - minimal
- *  # forms
- *      ## style placeholder text
- *      ## Change Autocomplete styles in Chrome
- *  # buttons
- *  # additional components
- *      ## alert box
- *      ## additional typo styles
- *      ## skillbars
- *  # common and reusable theme styles 
- *      ## section intro
- *      ## blog-list
- *  # header styles
- *      ## header logo
- *      ## mobile menu toggle
- *      ## navigation
- *  # home
- *      ## home content
- *      ## home social
- *      ## home animations
- *  # about
- *      ## timeline
- *  # works
- *      ## bricks/masonry
- *  # testimonials
- *  # blog
- *  # cta
- *  # stats
- *  # contact
- *  # footer
- *      ## go to top
- *  # blog styles
- *      ## blog page header
- *      ## blog content
- *      ## comments
- *
- * =================================================================== */
-
-
-/* ===================================================================
- * # webfonts and iconfonts - (_document-setup.scss)
- *
- * ------------------------------------------------------------------- */
 
 @import url("iconic/css/iconmonstr-iconic-font.min.css");
 @import url("fonts.css");
 
-
-
-/* ===================================================================
- * # base style overrides - (_document-setup.scss)
- *
- * ------------------------------------------------------------------- */
-
+.ignore-padding {
+    padding: 0 !important;
+}
 html {
     font-size: 10px;
 }
@@ -83,7 +20,7 @@ html, body {
 }
 
 body {
-    background: #0a0809;
+    background: #2ed3ae;
     font-family: "librebaskerville-regular", serif;
     font-size: 1.6rem;
     line-height: 1.875;
@@ -98,9 +35,10 @@ body {
  * ------------------------------------------------------------------- */
 
 a {
-    color: #862121;
+    color: #FF4500;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 a:hover, a:focus, a:active {
@@ -635,7 +573,7 @@ textarea, select {
     -moz-appearance: none;
     -ms-appearance: none;
     -o-appearance: none;
-    appearance: none;
+    /*appearance: none;*/
     text-indent: 0.01px;
     text-overflow: '';
     margin: 0;
@@ -1480,14 +1418,14 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transform: translate3d(0, 0, 0);
 }
 
-.s-header.sticky {
-    position: fixed;
-    top: 0;
-    background-color: #000000 !important;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 600;
-}
+    .s-header.sticky {
+        position: fixed;
+        top: 0;
+        background-color: #2ed3ae !important;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 600;
+    }
 
 .s-header.sticky .header-logo a {
     margin: 0;
@@ -1656,12 +1594,14 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     display: block;
     line-height: 72px;
     color: #FFFFFF;
+    text-decoration: none;
 }
 
-.header-nav li.current a {
-    font-family: "montserrat-extrabold", sans-serif;
-    color: #af2b2b;
-}
+    .header-nav li.current a {
+        font-family: "montserrat-extrabold", sans-serif;
+        color: #FF4500;
+        text-decoration: none;
+    }
 
 
 /* ------------------------------------------------------------------- 
@@ -1741,7 +1681,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
+    /*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);*/
 }
 
 .s-home .overlay {
@@ -2406,7 +2346,7 @@ html.no-csstransitions .home-content__main {
     background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
+    /*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);*/
 }
 
 .item-folio__thumb a {
@@ -3540,7 +3480,7 @@ article.blog-single .blog-content {
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+    /*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);*/
     /* IE6-9 */
 }
 
@@ -3650,9 +3590,9 @@ article.blog-single .blog-content {
     margin-right: 2rem;
 }
 
-.page-header__meta li::last-child {
+/*.page-header__meta li::last-child {
     margin-right: 0;
-}
+}*/
 
 .page-header__meta span, .page-header__meta a {
     color: #FFFFFF;
@@ -3986,7 +3926,7 @@ article.blog-single .blog-content {
 @media only screen and (max-width: 500px) {
     .blog-entries-nav .btn {
         margin-right: 0;
-        min-width: none;
+        /*min-width: none;*/
         width: 100%;
     }
 }
@@ -4136,4 +4076,16 @@ article.blog-single .blog-content {
     .commentlist .comment__avatar {
         display: none;
     }
+}
+
+
+/*my style*/
+.main-logo {
+    font-family: "librebaskerville-bold", serif;
+    color: #FFFFFF;
+    /*font-size: 1.8rem;*/
+    /*line-height: 1.35;*/
+    font-size: 4rem;
+    margin: 0;
+    padding: 10px 0;
 }
