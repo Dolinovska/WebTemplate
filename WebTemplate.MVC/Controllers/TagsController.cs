@@ -3,8 +3,6 @@ using System.Net;
 using System.Web.Mvc;
 using WebTemplate.Database;
 using WebTemplate.Database.Models;
-using WebTemplate.MVC.ViewModels.Categories;
-using WebTemplate.MVC.ViewModels.Products;
 
 namespace WebTemplate.MVC.Controllers
 {
@@ -70,8 +68,8 @@ namespace WebTemplate.MVC.Controllers
             {
                 return HttpNotFound();
             }
-            var allProducts = _repository.GetAll<Product>();
-            var tagEditModel = new TagEditModel(tag, allProducts);
+            var allNews = _repository.GetAll<News>();
+            var tagEditModel = new TagEditModel(tag, allNews);
             return View(tagEditModel);
         }
 
@@ -84,17 +82,17 @@ namespace WebTemplate.MVC.Controllers
             if (ModelState.IsValid)
             {
                 tag.Name = tagEditModel.Name;
-                tag.Products.Clear();
+                tag.News.Clear();
 
-                tagEditModel.SelectedProductsIds.Select(id => _repository.Find<Product>(id)).ToList()
-                    .ForEach(p => tag.Products.Add(p));
+                tagEditModel.SelectedNewsIds.Select(id => _repository.Find<News>(id)).ToList()
+                    .ForEach(p => tag.News.Add(p));
 
                 _repository.Update(tag);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var allProducts = _repository.GetAll<Product>();
-            tagEditModel = new TagEditModel(tag, allProducts);
+            var allNews = _repository.GetAll<News>();
+            tagEditModel = new TagEditModel(tag, allNews);
             return View(tagEditModel);
         }
 

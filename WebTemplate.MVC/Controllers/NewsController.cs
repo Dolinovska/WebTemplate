@@ -6,22 +6,21 @@ using WebTemplate.Database.Models;
 
 namespace WebTemplate.MVC.Controllers
 {
-    using WebTemplate.MVC.ViewModels.Categories;
-    using WebTemplate.MVC.ViewModels.Products;
+    using WebTemplate.MVC.ViewModels.Newss;
 
-    public class ProductsController : Controller
+    public class NewsController : Controller
     {
         private readonly Repository _repository;
 
-        public ProductsController()
+        public NewsController()
         {
             _repository = new Repository();
         }
 
         public ActionResult Index()
         {
-            var products = _repository.GetAll<Product>().ToList();
-            return View(products);
+            var news = _repository.GetAll<News>().ToList();
+            return View(news);
         }
 
         public ActionResult Details(int? id)
@@ -31,12 +30,12 @@ namespace WebTemplate.MVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var product = _repository.Find<Product>(id);
-            if (product == null)
+            var news = _repository.Find<News>(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(news);
         }
 
         public ActionResult Create()
@@ -46,16 +45,16 @@ namespace WebTemplate.MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        public ActionResult Create(News news)
         {
             if (ModelState.IsValid)
             {
-                _repository.Add(product);
+                _repository.Add(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(product);
+            return View(news);
         }
 
         public ActionResult Edit(int? id)
@@ -64,39 +63,39 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var product = _repository.Find<Product>(id);
-            if (product == null)
+            var news = _repository.Find<News>(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
             var allTags = _repository.GetAll<Tag>();
             var allCategories = _repository.GetAll<Category>();
-            var productEditModel = new ProductEditModel(product, allCategories, allTags);
-            return View(productEditModel);
+            var newsEditModel = new NewsEditModel(news, allCategories, allTags);
+            return View(newsEditModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(ProductEditModel productEditModel)
+        public ActionResult Edit(NewsEditModel newsEditModel)
         {
-            var product = this._repository.Find<Product>(productEditModel.Id);
+            var news = this._repository.Find<News>(newsEditModel.Id);
 
             if (ModelState.IsValid)
             {
-                product.Name = productEditModel.Name;
-                product.Tags.Clear();
+                news.Name = newsEditModel.Name;
+                news.Tags.Clear();
 
-                productEditModel.SelectedTagsIds.Select(id => _repository.Find<Tag>(id)).ToList()
-                    .ForEach(t => product.Tags.Add(t));
+                newsEditModel.SelectedTagsIds.Select(id => _repository.Find<Tag>(id)).ToList()
+                    .ForEach(t => news.Tags.Add(t));
 
-                _repository.Update(product);
+                _repository.Update(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
             var allTags = _repository.GetAll<Tag>();
             var allCategories = _repository.GetAll<Category>();
-            productEditModel = new ProductEditModel(product, allCategories, allTags);
-            return View(productEditModel);
+            newsEditModel = new NewsEditModel(news, allCategories, allTags);
+            return View(newsEditModel);
         }
 
         public ActionResult Delete(int? id)
@@ -105,20 +104,20 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var product = _repository.Find<Product>(id);
-            if (product == null)
+            var news = _repository.Find<News>(id);
+            if (news == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(news);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var product = _repository.Find<Product>(id);
-            _repository.Remove(product);
+            var news = _repository.Find<News>(id);
+            _repository.Remove(news);
             _repository.SaveChanges();
             return RedirectToAction("Index");
         }

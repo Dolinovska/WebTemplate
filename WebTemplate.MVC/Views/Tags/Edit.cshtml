@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Product</h4>
+        <h4>News</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -25,9 +25,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SelectedProductsIds, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedNewsIds, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.CheckBoxList("SelectedProductsIds", Model.ProductsCheckboxes)
+                @Html.CheckBoxList("SelectedNewsIds", Model.NewsCheckboxes)
             </div>
         </div>
 

@@ -4,7 +4,7 @@
 
     // one to many with category
     // many to many with tags
-    public class Product
+    public class News
     {
         public virtual int Id { get; set; }
 
