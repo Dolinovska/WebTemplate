@@ -3020,6 +3020,16 @@ html.no-csstransitions .home-content__main {
     position: relative;
 }
 
+.s-contact-create {
+    background-image: url("../Images/portfolio/gallery/g-minimalismo.jpg") !important;
+    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, transparent 70deg, rgba(0, 0, 0, 0.65) 100%);
+}
+
+
 .s-contact .overlay {
     position: absolute;
     top: 0;

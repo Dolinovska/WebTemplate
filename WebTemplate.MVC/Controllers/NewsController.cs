@@ -63,7 +63,21 @@ namespace WebTemplate.MVC.Controllers
             _repository.Update(news);
             _repository.SaveChanges();
 
-            return View(news);
+            var allNews = this._repository.GetAll<News>().Where(n => n.Id != news.Id);
+
+            var newsDetailsModel = new NewsDetailsModel(news);
+            foreach (var otherNews in allNews)
+            {
+                if (otherNews.Text.SimilarTo(news.Text))
+                {
+                    newsDetailsModel.DuplicateNews.Add(new DuplicateNews
+                    {
+                        OriginalUrl = otherNews.OriginalUrl,
+                        Source = otherNews.Source
+                    });
+                }
+            }
+            return View(newsDetailsModel);
         }
 
         public ActionResult Create()
@@ -159,6 +173,11 @@ namespace WebTemplate.MVC.Controllers
             }
 
             return View(news);
+        }
+
+        public ActionResult AboutUs()
+        {
+            return View();
         }
 
         [HttpPost, ActionName("Delete")]

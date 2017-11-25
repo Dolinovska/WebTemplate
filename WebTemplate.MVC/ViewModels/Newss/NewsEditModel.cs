@@ -1,5 +1,6 @@
 ﻿namespace WebTemplate.MVC.ViewModels.Newss
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
@@ -10,14 +11,27 @@
 
     using News = WebTemplate.Database.Models.News;
 
-    public class NewsEditModel
+    public sealed class NewsEditModel
     {
         public int Id { get; set; }
+
         public string Title { get; set; }
+
         public string Text { get; set; }
 
-        [Display(Name = "Tags")]
         public string Tags { get; set; }
+
+        public string OriginalUrl { get; set; }
+
+        public string Summary { get; set; }
+
+        public DateTime? PublishDate { get; set; }
+
+        public int ViewsCount { get; set; }
+
+        public string Author { get; set; }
+
+        public string Source { get; set; }
 
 
         [Display(Name = "Category")]
@@ -39,6 +53,13 @@
             this.Title = news.Title;
             this.Text = news.Text;
             this.Tags = news.Tags;
+            this.OriginalUrl = news.OriginalUrl;
+
+            this.Source = news.Source;
+            this.Author = news.Author;
+            this.Summary = news.Summary;
+            this.ViewsCount = news.ViewsCount;
+            this.PublishDate = news.PublishDate;
             this.Image = news.Image;
 
             SelectedCategory = news.Category?.Id ?? 0;
