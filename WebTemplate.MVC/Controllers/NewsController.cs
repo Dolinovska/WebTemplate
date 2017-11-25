@@ -55,21 +55,33 @@ namespace WebTemplate.MVC.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var news = new News();
+            var allCategories = _repository.GetAll<Category>();
+            var newsEditModel = new NewsEditModel(news, allCategories);
+            return View(newsEditModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(News news)
+        public ActionResult Create(NewsEditModel newsEditModel)
         {
+            var news = new News();
+
             if (ModelState.IsValid)
             {
+                news.Title = newsEditModel.Title;
+                news.Text = newsEditModel.Text;
+                news.Tags = newsEditModel.Tags;
+
+                news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
                 _repository.Add(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(news);
+            var allCategories = _repository.GetAll<Category>();
+            newsEditModel = new NewsEditModel(news, allCategories);
+            return View(newsEditModel);
         }
 
         public ActionResult Edit(int? id)
@@ -97,10 +109,15 @@ namespace WebTemplate.MVC.Controllers
             if (ModelState.IsValid)
             {
                 news.Title = newsEditModel.Title;
+                news.Text = newsEditModel.Text;
+                news.Tags = newsEditModel.Tags;
+
+                news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
                 _repository.Update(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             var allCategories = _repository.GetAll<Category>();
             newsEditModel = new NewsEditModel(news, allCategories);
             return View(newsEditModel);

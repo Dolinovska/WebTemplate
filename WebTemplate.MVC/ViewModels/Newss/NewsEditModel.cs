@@ -35,6 +35,8 @@
             this.Text = news.Text;
             this.Tags = news.Tags;
 
+            SelectedCategory = news.Category?.Id ?? 0;
+
             this.Categories = allCategories.Select(c => new SelectListItem
             {
                 Text = c.Name,
