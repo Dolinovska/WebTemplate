@@ -311,6 +311,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +319,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Images\Images.csproj">
+      <Project>{FCA777F5-ACDC-459B-97A1-7B4AC908952F}</Project>
+      <Name>Images</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebTemplate.Database\WebTemplate.Database.csproj">
       <Project>{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}</Project>
       <Name>WebTemplate.Database</Name>

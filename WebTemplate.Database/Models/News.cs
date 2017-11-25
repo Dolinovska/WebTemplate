@@ -29,5 +29,7 @@
         public virtual string Author { get; set; }
 
         public virtual string Source { get; set; }
+
+        public virtual string Image { get; set; }
     }
 }
