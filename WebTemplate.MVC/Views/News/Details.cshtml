@@ -4,36 +4,48 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="row blog-content">
+    <div class="col-full">
+        <div class="blog-list block-1-2 block-tab-full">
+          
+                <article class="col-block">
 
-<div>
-    <h4>News</h4>
-    <hr/>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+                    @*<div class="blog-date">
+                        <a href="@Url.Action("Details", "News", new {id = Model.Id})">@Model.PublishDate</a>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+                    <h2 class="h01">
+                        <a href="@Url.Action("Details", "News", new {id = Model.Id})">@Model.Title</a>
+                    </h2>
+                    <p>
+                        @Html.Raw(Model.Summary)
+                    </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Text)
-        </dt>
+                    <div class="blog-cat">
+                        @Url.Action("Index", "News", new { tags = Model.Tags })
+                    </div>*@
+                </article>
+        </div>
+    </div>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
+public string Title { get; set; }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
+public string Text { get; set; }
 
-        <dd>
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
+public string Tags { get; set; }
 
+public string OriginalUrl { get; set; }
+
+public string Summary { get; set; }
+
+public DateTime? PublishDate { get; set; }
+
+public int ViewsCount { get; set; }
+
+public string Author { get; set; }
+
+public string Source { get; set; }
 
         <dt>
             @Html.DisplayNameFor(model => model.Image)
@@ -47,6 +59,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")*@
 </p>
