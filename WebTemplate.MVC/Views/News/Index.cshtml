@@ -1,10 +1,37 @@
 ﻿@model IEnumerable<WebTemplate.Database.Models.News>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Hola</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link href="~/Content/base.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/vendor.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+
+    <!-- script
+    ================================================== -->
+    @*<script src="~/Scripts/modernizr.js"></script>
+        <script src="~/Scripts/pace.min.js"></script>
+        <script src="~/Scripts/main.js"></script>*@
+
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="~/Images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/Images/favicon.ico" type="image/x-icon">
+</head>
 
 @using (Html.BeginForm("Index", "News", FormMethod.Get))
 {

@@ -3,64 +3,109 @@
 @{
     ViewBag.Title = "Create";
 }
+<section id="contact" class="s-contact s-contact-create target-section ignore-padding">
+    <div class="row contact__main">
+        <div class="col-eight tab-full contact__form">
 
-<h2>Create</h2>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <h4>Додати новину</h4>
+                    <hr />
+                    <form name="contactForm" id="contactForm" method="post" action="">
+                        <fieldset>
+                            @*DOdo*@
+
+                            <div class="form-field">
+                                <input name="contactName" type="text" id="contactName" placeholder="Заголовок" value="" minlength="2" required="" aria-required="true" class="full-width">
+                            </div>
+                            <div class="form-group form-field">
+                                @Html.LabelFor(model => model.Title, htmlAttributes: new {@class = "control-label col-md-2"})
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Title, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.Title, string.Empty, new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <input name="contactEmail" type="email" id="contactEmail" placeholder="Автор" value="" required="" aria-required="true" class="full-width">
+                            </div>
+                            <div class="form-field">
+                                <input name="contactSubject" type="text" id="contactSubject" placeholder="Категорія" value="" class="full-width">
+                            </div>
+                            <div class="form-field">
+                                <input name="contactSubject" type="text" id="contactSubject" placeholder="Теги" value="" class="full-width">
+                            </div>
+                            <div class="form-field">
+                                <textarea name="contactMessage" id="contactMessage" placeholder="Текст" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                            </div>
+                            <div class="form-field">
+                                @*<input type="submit" value="Save" class="btn btn-default" />*@
+                                <button class="full-width btn--primary" type="submit" value="Save">Зберегти</button>
+                                <div class="submit-loader">
+                                    <div class="text-loader">Sending...</div>
+                                    <div class="s-loader">
+                                        <div class="bounce1"></div>
+                                        <div class="bounce2"></div>
+                                        <div class="bounce3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>News</h4>
-        <hr/>
-        @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+                    @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, string.Empty, new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Title, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Text, string.Empty, new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Text, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SelectedCategory, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.SelectedCategory, Model.Categories)
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SelectedCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.SelectedCategory, Model.Categories)
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control" } })
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default"/>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
             </div>
         </div>
     </div>
-}
-
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
+</section>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

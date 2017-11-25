@@ -151,6 +151,11 @@ namespace WebTemplate.MVC.Controllers
             return View(news);
         }
 
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

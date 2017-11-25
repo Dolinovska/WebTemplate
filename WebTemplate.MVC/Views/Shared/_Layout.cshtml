@@ -10,45 +10,27 @@
     <link rel="stylesheet" href="~/Content/vendor.css">
     <link rel="stylesheet" href="~/Content/main.css">
 </head>
-<body>
-@*<header class="s-header">
+<body id="top">
+<header class="s-header">
     <nav class="header-nav-wrap pull-left" style="left: 120px; font-family:'librebaskerville-bold', serif; font-size: 4rem;">
         <ul class="header-nav">
-            <li class="current"><a class="smoothscroll" href="@Url.Action("Index", "News")" title="home">Звістка</a></li>
+            <li class="current"><a class="smoothscroll" href="@Url.Action("Index","News")" title="home">Zvistka</a></li>
         </ul>
     </nav>
 
     <nav class="header-nav-wrap">
         <ul class="header-nav">
-            <li class="current"><a class="smoothscroll" href="@Url.Action("Index", "News")" title="home">Головна</a></li>
-            <li><a class="smoothscroll" href="#about" title="about">Про нас</a></li>
-            <li><a class="smoothscroll" href="№works" title="blog">Категорії</a></li>
-            <li><a class="smoothscroll" href="#blog" title="works">Новини</a></li>
-
-            <li><a class="smoothscroll" href="#contact" title="contact">Контакт</a></li>
+            @*<li class="current"><a class="smoothscroll" href="#home" title="Головна">Головна</a></li>*@
+            <li><a class="smoothscroll" href="@Url.Action("Index","News")" title="Новини">Новини</a></li>
+            <li><a class="smoothscroll" href="@Url.Action("AboutUs","News")" title="Про нас">Про нас</a></li>
+            <li><a class="smoothscroll" href="#" title="Замовити">Замовити</a></li>
+            <li><a class="smoothscroll" href="#" title="Логін">Логін</a></li>
         </ul>
     </nav>
 
     <a class="header-menu-toggle" href="#0"><span>Меню</span></a>
 
-</header>*@ 
-@*<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                <li>@Html.ActionLink("News", "Index", "News")</li>
-            </ul>
-        </div>
-    </div>
-</div>*@
+</header>
 <div class="container">
     @RenderBody()
 </div>

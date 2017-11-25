@@ -129,7 +129,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -308,10 +307,11 @@
     <Content Include="Views\News\PopularNews.cshtml" />
     <Content Include="Views\News\LatestNews.cshtml" />
     <Content Include="Views\News\Counters.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\News\AboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
