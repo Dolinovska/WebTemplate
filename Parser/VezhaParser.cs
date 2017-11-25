@@ -25,18 +25,18 @@ namespace Parser
                     {
                         Title = item.Title.Text,
                         Summary = item.Summary.Text,
-                        Tags = string.Join(",", item.Categories.Select(c => c.Name)),
+                        Tags = string.Join(News.TagsSeparator.ToString(), item.Categories.Select(c => c.Name)),
                         PublishDate = item.PublishDate.UtcDateTime,
-                        OriginalUrl = item.Id                        
+                        OriginalUrl = item.Id
                     };
-
-
+                    
                     var rss = xmldoc.Element("rss");
                     var channel = rss.Element("channel");
                     var elements = channel.Elements("item").ToList();
                     var txt = elements.FirstOrDefault(e => e.Element("guid").Value == item.Id).Value;
                     article.Text = txt;
 
+                    result.Add(article);
                 }
             }
 
