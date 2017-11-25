@@ -1,4 +1,6 @@
-﻿namespace WebTemplate.Database.Models
+﻿using System;
+
+namespace WebTemplate.Database.Models
 {
     // one to many with category
     // many to many with tags

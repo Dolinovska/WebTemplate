@@ -25,7 +25,7 @@ namespace Parser
                     {
                         Title = item.Title.Text,
                         Summary = item.Summary.Text,
-                        Tags = item.Categories.Select(c => new Tag() { Name = c.Name } ).ToList(),
+                        Tags = string.Join(",", item.Categories.Select(c => c.Name)),
                         PublishDate = item.PublishDate.UtcDateTime,
                         OriginalUrl = item.Id                        
                     };
