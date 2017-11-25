@@ -15,5 +15,11 @@
         public virtual string Tags { get; set; }
 
         public static char TagsSeparator = ',';
+
+        public virtual string OriginalUrl { get; set; }
+
+        public virtual string Summary { get; set; }
+
+        public virtual DateTime? PublishDate { get; set; }
     }
 }
