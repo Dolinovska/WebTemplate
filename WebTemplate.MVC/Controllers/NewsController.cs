@@ -6,6 +6,10 @@ using WebTemplate.Database.Models;
 
 namespace WebTemplate.MVC.Controllers
 {
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq.Expressions;
+
     using WebTemplate.MVC.ViewModels.Newss;
 
     public class NewsController : Controller
@@ -17,10 +21,21 @@ namespace WebTemplate.MVC.Controllers
             _repository = new Repository();
         }
 
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(string category, string tags)
         {
-            var news = _repository.GetAll<News>().ToList();
-            return View(news);
+            var categoryNews = this._repository.GetAll<News>();
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                categoryNews = this._repository.GetAll<Category>().FirstOrDefault(c => c.Name == category)?.News
+                               ?? new List<News>();
+            }
+            if (!string.IsNullOrEmpty(tags))
+            {
+                categoryNews = categoryNews.Where(n => FilterByTags(n, tags)).ToList();
+            }
+            return View(categoryNews);
         }
 
         public ActionResult Details(int? id)
@@ -113,6 +128,14 @@ namespace WebTemplate.MVC.Controllers
             _repository.Remove(news);
             _repository.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        private bool FilterByTags(News news, string tags)
+        {
+            var separatedTags = tags.Split(News.TagsSeparator);
+            var newsTags = news.Tags.Split(News.TagsSeparator);
+
+            return newsTags.Any(newsTag => separatedTags.Contains(newsTag));
         }
     }
 }

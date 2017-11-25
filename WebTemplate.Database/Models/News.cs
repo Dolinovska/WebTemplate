@@ -15,5 +15,7 @@
         public virtual Category Category { get; set; }
 
         public virtual string Tags { get; set; }
+
+        public static char TagsSeparator = ',';
     }
 }
