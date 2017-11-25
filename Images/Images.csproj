@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A47BF24-F31B-4BA1-873C-F3C2A5203FC1}</ProjectGuid>
+    <ProjectGuid>{FCA777F5-ACDC-459B-97A1-7B4AC908952F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Parser</RootNamespace>
-    <AssemblyName>Parser</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Images</RootNamespace>
+    <AssemblyName>Images</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,8 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,19 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IParser.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ImageManager.cs" />
+    <Compile Include="IImageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GalkaParser.cs" />
-    <Compile Include="VezhaParser.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebTemplate.Database\WebTemplate.Database.csproj">
-      <Project>{27e9bd2b-c5c8-40cb-8c83-4b2688a92198}</Project>
-      <Name>WebTemplate.Database</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,6 +28,8 @@
 
         public virtual string Source { get; set; }
 
+        public virtual string Image { get; set; }
+
         public static char TagsSeparator = ',';
     }
 }

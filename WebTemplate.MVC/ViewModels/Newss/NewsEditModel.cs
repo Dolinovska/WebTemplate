@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
 
     using WebTemplate.Database.Models;
@@ -37,6 +38,11 @@
         public int SelectedCategory { get; set; }
         public IEnumerable<SelectListItem> Categories { get; set; }
 
+        [Display(Name = "Title Image")]
+        public HttpPostedFileBase PostedImage { get; set; }
+
+        public string Image { get; set; }
+
         public NewsEditModel()
         {
         }
@@ -54,6 +60,7 @@
             this.Summary = news.Summary;
             this.ViewsCount = news.ViewsCount;
             this.PublishDate = news.PublishDate;
+            this.Image = news.Image;
 
             SelectedCategory = news.Category?.Id ?? 0;
 
