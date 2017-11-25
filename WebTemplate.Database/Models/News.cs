@@ -1,7 +1,5 @@
 ﻿namespace WebTemplate.Database.Models
 {
-    using System.Collections.Generic;
-
     // one to many with category
     // many to many with tags
     public class News

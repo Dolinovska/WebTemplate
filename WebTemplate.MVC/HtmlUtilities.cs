@@ -20,6 +20,7 @@ namespace WebTemplate.MVC
                 stringBuilder.Append(GenerateLabelCode(item));
                 stringBuilder.Append("<br />");
             }
+
             return new MvcHtmlString(stringBuilder.ToString());
         }
 

@@ -1,6 +1,5 @@
 ﻿namespace WebTemplate.MVC
 {
-    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Text.RegularExpressions;
@@ -22,14 +21,14 @@
             {
                 var numberRegex = new Regex(@"[\d]+[.][\d]+|[\d]+");
 
-                string xMatch = numberRegex.Match(x).ToString();
-                string yMatch = numberRegex.Match(y).ToString();
+                var xMatch = numberRegex.Match(x).ToString();
+                var yMatch = numberRegex.Match(y).ToString();
 
-                double xDouble = Double.Parse(xMatch, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
-                double yDouble = Double.Parse(yMatch, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
+                var xDouble = double.Parse(xMatch, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
+                var yDouble = double.Parse(yMatch, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
 
                 // Compare double numbers
-                int compareResult = xDouble.CompareTo(yDouble);
+                var compareResult = xDouble.CompareTo(yDouble);
 
                 // Return result only if arguments' number parts are not equal.
                 // In that case they will be compared by String.Compare() correctly.
@@ -37,15 +36,15 @@
             }
 
             // Compare as strings
-            return String.Compare(x, y, System.StringComparison.Ordinal);
+            return string.Compare(x, y, System.StringComparison.Ordinal);
         }
 
         private bool BothArgumentsBeginWithNumber(string x, string y)
         {
             var beginsWithNumberRegex = new Regex(@"([\d]+[.][\d]+|[\d]+)*");
 
-            bool xBeginsWithNumber = beginsWithNumberRegex.Match(x).Length > 0;
-            bool yBeginsWithNumber = beginsWithNumberRegex.Match(y).Length > 0;
+            var xBeginsWithNumber = beginsWithNumberRegex.Match(x).Length > 0;
+            var yBeginsWithNumber = beginsWithNumberRegex.Match(y).Length > 0;
 
             return xBeginsWithNumber && yBeginsWithNumber;
         }

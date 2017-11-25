@@ -7,8 +7,6 @@ using WebTemplate.Database.Models;
 namespace WebTemplate.MVC.Controllers
 {
     using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq.Expressions;
 
     using WebTemplate.MVC.ViewModels.Newss;
 
@@ -31,10 +29,14 @@ namespace WebTemplate.MVC.Controllers
                 categoryNews = this._repository.GetAll<Category>().FirstOrDefault(c => c.Name == category)?.News
                                ?? new List<News>();
             }
+
             if (!string.IsNullOrEmpty(tags))
             {
                 categoryNews = categoryNews.Where(n => FilterByTags(n, tags)).ToList();
             }
+
+            categoryNews = FilterBySimilarContent(categoryNews);
+
             return View(categoryNews);
         }
 
@@ -50,6 +52,7 @@ namespace WebTemplate.MVC.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(news);
         }
 
@@ -90,11 +93,13 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var news = _repository.Find<News>(id);
             if (news == null)
             {
                 return HttpNotFound();
             }
+
             var allCategories = _repository.GetAll<Category>();
             var newsEditModel = new NewsEditModel(news, allCategories);
             return View(newsEditModel);
@@ -129,11 +134,13 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var news = _repository.Find<News>(id);
             if (news == null)
             {
                 return HttpNotFound();
             }
+
             return View(news);
         }
 
@@ -153,6 +160,19 @@ namespace WebTemplate.MVC.Controllers
             var newsTags = news.Tags.Split(News.TagsSeparator);
 
             return newsTags.Any(newsTag => separatedTags.Contains(newsTag));
+        }
+
+        private IEnumerable<News> FilterBySimilarContent(IEnumerable<News> newsToFilter)
+        {
+            var resultNews = new List<News>();
+            foreach (var news in newsToFilter)
+            {
+                if (!resultNews.Any(rn => rn.Text.SimilarTo(news.Text)))
+                {
+                    resultNews.Add(news);
+                }
+            }
+            return resultNews;
         }
     }
 }
