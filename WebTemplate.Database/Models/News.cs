@@ -1,6 +1,6 @@
 ﻿namespace WebTemplate.Database.Models
 {
-    using System.Collections.Generic;
+    using System;
 
     // one to many with category
     // many to many with tags
@@ -16,6 +16,18 @@
 
         public virtual string Tags { get; set; }
 
+        public virtual string OriginalUrl { get; set; }
+
+        public virtual string Summary { get; set; }
+
+        public virtual DateTime? PublishDate { get; set; }
+
+        public int ViewsCount { get; set; }
+
         public static char TagsSeparator = ',';
+
+        public virtual string Author { get; set; }
+
+        public virtual string Source { get; set; }
     }
 }

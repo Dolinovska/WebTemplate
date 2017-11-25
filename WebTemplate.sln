@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTemplate.MVC", "WebTemplate.MVC\WebTemplate.MVC.csproj", "{064DA04A-885C-4A2C-AF4A-8A71CA6B90F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTemplate.Database", "WebTemplate.Database\WebTemplate.Database.csproj", "{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parser", "Parser\Parser.csproj", "{5A47BF24-F31B-4BA1-873C-F3C2A5203FC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{F435BC5E-ECB9-4119-B11C-50CEDE94EA76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A47BF24-F31B-4BA1-873C-F3C2A5203FC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A47BF24-F31B-4BA1-873C-F3C2A5203FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A47BF24-F31B-4BA1-873C-F3C2A5203FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A47BF24-F31B-4BA1-873C-F3C2A5203FC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F435BC5E-ECB9-4119-B11C-50CEDE94EA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F435BC5E-ECB9-4119-B11C-50CEDE94EA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F435BC5E-ECB9-4119-B11C-50CEDE94EA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F435BC5E-ECB9-4119-B11C-50CEDE94EA76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

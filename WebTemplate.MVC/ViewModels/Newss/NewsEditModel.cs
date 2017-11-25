@@ -1,6 +1,5 @@
 ﻿namespace WebTemplate.MVC.ViewModels.Newss
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
@@ -34,6 +33,8 @@
             this.Title = news.Title;
             this.Text = news.Text;
             this.Tags = news.Tags;
+
+            SelectedCategory = news.Category?.Id ?? 0;
 
             this.Categories = allCategories.Select(c => new SelectListItem
             {

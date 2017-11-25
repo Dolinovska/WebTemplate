@@ -7,9 +7,8 @@ using WebTemplate.Database.Models;
 namespace WebTemplate.MVC.Controllers
 {
     using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq.Expressions;
 
+    using WebTemplate.MVC.ViewModels;
     using WebTemplate.MVC.ViewModels.Newss;
 
     public class NewsController : Controller
@@ -31,10 +30,14 @@ namespace WebTemplate.MVC.Controllers
                 categoryNews = this._repository.GetAll<Category>().FirstOrDefault(c => c.Name == category)?.News
                                ?? new List<News>();
             }
+
             if (!string.IsNullOrEmpty(tags))
             {
                 categoryNews = categoryNews.Where(n => FilterByTags(n, tags)).ToList();
             }
+
+            categoryNews = FilterBySimilarContent(categoryNews);
+
             return View(categoryNews);
         }
 
@@ -46,30 +49,49 @@ namespace WebTemplate.MVC.Controllers
             }
 
             var news = _repository.Find<News>(id);
+
             if (news == null)
             {
                 return HttpNotFound();
             }
+
+            news.ViewsCount++;
+
+            _repository.Update(news);
+            _repository.SaveChanges();
+
             return View(news);
         }
 
         public ActionResult Create()
         {
-            return View();
+            var news = new News();
+            var allCategories = _repository.GetAll<Category>();
+            var newsEditModel = new NewsEditModel(news, allCategories);
+            return View(newsEditModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(News news)
+        public ActionResult Create(NewsEditModel newsEditModel)
         {
+            var news = new News();
+
             if (ModelState.IsValid)
             {
+                news.Title = newsEditModel.Title;
+                news.Text = newsEditModel.Text;
+                news.Tags = newsEditModel.Tags;
+
+                news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
                 _repository.Add(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(news);
+            var allCategories = _repository.GetAll<Category>();
+            newsEditModel = new NewsEditModel(news, allCategories);
+            return View(newsEditModel);
         }
 
         public ActionResult Edit(int? id)
@@ -78,11 +100,13 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var news = _repository.Find<News>(id);
             if (news == null)
             {
                 return HttpNotFound();
             }
+
             var allCategories = _repository.GetAll<Category>();
             var newsEditModel = new NewsEditModel(news, allCategories);
             return View(newsEditModel);
@@ -97,10 +121,15 @@ namespace WebTemplate.MVC.Controllers
             if (ModelState.IsValid)
             {
                 news.Title = newsEditModel.Title;
+                news.Text = newsEditModel.Text;
+                news.Tags = newsEditModel.Tags;
+
+                news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
                 _repository.Update(news);
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             var allCategories = _repository.GetAll<Category>();
             newsEditModel = new NewsEditModel(news, allCategories);
             return View(newsEditModel);
@@ -112,11 +141,13 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var news = _repository.Find<News>(id);
             if (news == null)
             {
                 return HttpNotFound();
             }
+
             return View(news);
         }
 
@@ -130,12 +161,50 @@ namespace WebTemplate.MVC.Controllers
             return RedirectToAction("Index");
         }
 
+        [ChildActionOnly]
+        public PartialViewResult PopularTags()
+        {
+            var allTags = this._repository.GetAll<News>().SelectMany(n => n.Tags.Split(News.TagsSeparator));
+            var tagStat = allTags.GroupBy(t => t)
+                .Select(group => new TagStat { Tag = group.Key, Count = group.Count() })
+                .Take(5);
+
+            return PartialView(tagStat);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult PopularNews()
+        {
+            var popularNews = this._repository.GetAll<News>().OrderByDescending(n => n.ViewsCount).Take(5);
+            return PartialView(popularNews);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult LatestNews()
+        {
+            var latestNews = this._repository.GetAll<News>().OrderByDescending(n => n.PublishDate).Take(4);
+            return PartialView(latestNews);
+        }
+
         private bool FilterByTags(News news, string tags)
         {
             var separatedTags = tags.Split(News.TagsSeparator);
             var newsTags = news.Tags.Split(News.TagsSeparator);
 
             return newsTags.Any(newsTag => separatedTags.Contains(newsTag));
+        }
+
+        private IEnumerable<News> FilterBySimilarContent(IEnumerable<News> newsToFilter)
+        {
+            var resultNews = new List<News>();
+            foreach (var news in newsToFilter)
+            {
+                if (!resultNews.Any(rn => rn.Text.SimilarTo(news.Text)))
+                {
+                    resultNews.Add(news);
+                }
+            }
+            return resultNews;
         }
     }
 }

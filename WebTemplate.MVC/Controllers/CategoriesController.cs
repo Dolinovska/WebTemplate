@@ -22,6 +22,13 @@ namespace WebTemplate.MVC.Controllers
             return View(categories);
         }
 
+        [ChildActionOnly]
+        public PartialViewResult MenuList()
+        {
+            var categories = this._repository.GetAll<Category>();
+            return this.PartialView(categories);
+
+        }
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,6 +41,7 @@ namespace WebTemplate.MVC.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(category);
         }
 
@@ -62,6 +70,7 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var category = _repository.Find<Category>(id);
             if (category == null)
             {
@@ -85,6 +94,7 @@ namespace WebTemplate.MVC.Controllers
                 _repository.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             categoryEditModel = new CategoryEditModel(category);
             return View(categoryEditModel);
         }
@@ -95,11 +105,13 @@ namespace WebTemplate.MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var category = _repository.Find<Category>(id);
             if (category == null)
             {
                 return HttpNotFound();
             }
+
             return View(category);
         }
 
