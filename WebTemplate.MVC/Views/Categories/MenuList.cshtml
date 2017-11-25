@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebTemplate.Database.Models.Category>
+
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="?category=@item.Name">@item.Name</a>
+    </li>
+}
