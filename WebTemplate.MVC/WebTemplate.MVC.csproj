@@ -140,6 +140,7 @@
     <Compile Include="ViewModels\Categories\CategoryEditModel.cs" />
     <Compile Include="ViewModels\Checkbox.cs" />
     <Compile Include="ViewModels\Counters.cs" />
+    <Compile Include="ViewModels\Newss\NewsDetailsModel.cs" />
     <Compile Include="ViewModels\Newss\NewsEditModel.cs" />
     <Compile Include="ViewModels\TagStat.cs" />
   </ItemGroup>
