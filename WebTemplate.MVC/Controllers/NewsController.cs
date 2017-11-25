@@ -186,6 +186,20 @@ namespace WebTemplate.MVC.Controllers
             return PartialView(latestNews);
         }
 
+        [ChildActionOnly]
+        public PartialViewResult Counters()
+        {
+            var news = this._repository.GetAll<News>();
+            var counters = new Counters
+            {
+                NewsCount = news.Count(),
+                SourcesCount = 3,
+                TagsCount = news.SelectMany(n => n.Tags.Split(News.TagsSeparator)).Distinct().Count(),
+                ViewsCount = news.Sum(n => n.ViewsCount)
+            };
+            return PartialView(counters);
+        }
+
         private bool FilterByTags(News news, string tags)
         {
             var separatedTags = tags.Split(News.TagsSeparator);

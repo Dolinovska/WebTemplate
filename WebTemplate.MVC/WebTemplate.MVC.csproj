@@ -138,6 +138,7 @@
     <Compile Include="TextHelpers.cs" />
     <Compile Include="ViewModels\Categories\CategoryEditModel.cs" />
     <Compile Include="ViewModels\Checkbox.cs" />
+    <Compile Include="ViewModels\Counters.cs" />
     <Compile Include="ViewModels\Newss\NewsEditModel.cs" />
     <Compile Include="ViewModels\TagStat.cs" />
   </ItemGroup>
@@ -287,6 +288,7 @@
     <Content Include="Views\News\PopularTags.cshtml" />
     <Content Include="Views\News\PopularNews.cshtml" />
     <Content Include="Views\News\LatestNews.cshtml" />
+    <Content Include="Views\News\Counters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
