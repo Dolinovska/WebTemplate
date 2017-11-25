@@ -1,9 +1,16 @@
 ﻿@model IEnumerable<WebTemplate.MVC.ViewModels.TagStat>
 
-
-@foreach (var item in Model)
-{
-    <li>
-        @item.Tag @item.Count
-    </li>
-}
+<ul class="skill-bars">
+    @{ var sum = Model.Sum(i => i.Count);}
+    @foreach (var item in Model)
+    {
+        int perc = (100 * item.Count / sum) / 5 * 5;
+        string p = "progress percent" + perc;
+        <li>
+            <div class="@p">
+                <span>@perc %</span>
+            </div>
+            <strong>@item.Tag</strong>
+        </li>
+    }
+</ul>

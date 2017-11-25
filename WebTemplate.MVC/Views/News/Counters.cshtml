@@ -1,7 +1,35 @@
 ﻿@model WebTemplate.MVC.ViewModels.Counters
 
+<section id="stats" class="s-stats">
+    <div class="row block-1-4 block-tab-1-2 block-mob-full stats">
 
-@Model.ViewsCount
-@Model.NewsCount
-@Model.SourcesCount
-@Model.TagsCount
+        <div class="col-block stats__col ">
+            <div class="stats__count">
+                @Model.SourcesCount
+            </div>
+            <h4>Автори</h4>
+        </div>
+        <div class="col-block stats__col">
+            <div class="stats__count">
+                @Model.ViewsCount
+            </div>
+            <h4>Кількість переглядів</h4>
+        </div>
+        <div class="col-block stats__col stats__col--highlight">
+            <div class="stats__upsign">
+                <a href="#"><i class="im im-arrow-up" aria-hidden="true"></i></a>
+            </div>
+            <div class="stats__count">
+                @Model.TagsCount
+            </div>
+            <h4>кількість тегів</h4>
+        </div>
+        <div class="col-block stats__col">
+            <div class="stats__count">
+                @Model.NewsCount
+            </div>
+            <h4>Додані новини</h4>
+        </div>
+
+    </div>
+</section> 

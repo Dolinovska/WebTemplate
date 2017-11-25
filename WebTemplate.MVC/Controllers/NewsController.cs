@@ -7,6 +7,7 @@ using WebTemplate.Database.Models;
 namespace WebTemplate.MVC.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq.Expressions;
 
     using WebTemplate.MVC.ViewModels;
     using WebTemplate.MVC.ViewModels.Newss;
@@ -186,6 +187,7 @@ namespace WebTemplate.MVC.Controllers
             var allTags = this._repository.GetAll<News>().SelectMany(n => n.Tags.Split(News.TagsSeparator));
             var tagStat = allTags.GroupBy(t => t)
                 .Select(group => new TagStat { Tag = group.Key, Count = group.Count() })
+                .OrderByDescending(t => t.Count)
                 .Take(5);
 
             return PartialView(tagStat);
@@ -194,7 +196,7 @@ namespace WebTemplate.MVC.Controllers
         [ChildActionOnly]
         public PartialViewResult PopularNews()
         {
-            var popularNews = this._repository.GetAll<News>().OrderByDescending(n => n.ViewsCount).Take(5);
+            var popularNews = this._repository.GetAll<News>().OrderByDescending(n => n.ViewsCount).Take(4);
             return PartialView(popularNews);
         }
 
@@ -212,7 +214,7 @@ namespace WebTemplate.MVC.Controllers
             var counters = new Counters
             {
                 NewsCount = news.Count(),
-                SourcesCount = 3,
+                SourcesCount = news.Select(n => n.Author).Distinct().Count(),
                 TagsCount = news.SelectMany(n => n.Tags.Split(News.TagsSeparator)).Distinct().Count(),
                 ViewsCount = news.Sum(n => n.ViewsCount)
             };
