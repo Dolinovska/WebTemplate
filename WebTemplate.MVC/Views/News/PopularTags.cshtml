@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebTemplate.MVC.ViewModels.TagStat>
+
+
+@foreach (var item in Model)
+{
+    <li>
+        @item.Tag @item.Count
+    </li>
+}

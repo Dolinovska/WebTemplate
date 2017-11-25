@@ -8,6 +8,7 @@ namespace WebTemplate.MVC.Controllers
 {
     using System.Collections.Generic;
 
+    using WebTemplate.MVC.ViewModels;
     using WebTemplate.MVC.ViewModels.Newss;
 
     public class NewsController : Controller
@@ -48,10 +49,16 @@ namespace WebTemplate.MVC.Controllers
             }
 
             var news = _repository.Find<News>(id);
+
             if (news == null)
             {
                 return HttpNotFound();
             }
+
+            news.ViewsCount++;
+
+            _repository.Update(news);
+            _repository.SaveChanges();
 
             return View(news);
         }
@@ -152,6 +159,31 @@ namespace WebTemplate.MVC.Controllers
             _repository.Remove(news);
             _repository.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult PopularTags()
+        {
+            var allTags = this._repository.GetAll<News>().SelectMany(n => n.Tags.Split(News.TagsSeparator));
+            var tagStat = allTags.GroupBy(t => t)
+                .Select(group => new TagStat { Tag = group.Key, Count = group.Count() })
+                .Take(5);
+
+            return PartialView(tagStat);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult PopularNews()
+        {
+            var popularNews = this._repository.GetAll<News>().OrderByDescending(n => n.ViewsCount).Take(5);
+            return PartialView(popularNews);
+        }
+
+        [ChildActionOnly]
+        public PartialViewResult LatestNews()
+        {
+            var latestNews = this._repository.GetAll<News>().OrderByDescending(n => n.PublishDate).Take(4);
+            return PartialView(latestNews);
         }
 
         private bool FilterByTags(News news, string tags)

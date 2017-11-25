@@ -22,6 +22,8 @@
 
         public virtual DateTime? PublishDate { get; set; }
 
+        public int ViewsCount { get; set; }
+
         public static char TagsSeparator = ',';
     }
 }

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebTemplate.Database.Models.News>
+
+
+@foreach (var item in Model)
+{
+    <li>
+        @item.Title @item.ViewsCount
+    </li>
+}

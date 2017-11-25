@@ -139,6 +139,7 @@
     <Compile Include="ViewModels\Categories\CategoryEditModel.cs" />
     <Compile Include="ViewModels\Checkbox.cs" />
     <Compile Include="ViewModels\Newss\NewsEditModel.cs" />
+    <Compile Include="ViewModels\TagStat.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\base.css" />
@@ -283,6 +284,9 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Categories\MenuList.cshtml" />
+    <Content Include="Views\News\PopularTags.cshtml" />
+    <Content Include="Views\News\PopularNews.cshtml" />
+    <Content Include="Views\News\LatestNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
