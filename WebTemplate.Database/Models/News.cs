@@ -1,14 +1,11 @@
-﻿using System;
-
-namespace WebTemplate.Database.Models
+﻿namespace WebTemplate.Database.Models
 {
+    using System;
+
     // one to many with category
     // many to many with tags
     public class News
     {
-        public static char TagsSeparator = ',';
-
-
         public virtual int Id { get; set; }
 
         public virtual string Title { get; set; }
@@ -17,7 +14,7 @@ namespace WebTemplate.Database.Models
 
         public virtual Category Category { get; set; }
 
-        public virtual string Tags { get; set; }        
+        public virtual string Tags { get; set; }
 
         public virtual string OriginalUrl { get; set; }
 
@@ -25,10 +22,6 @@ namespace WebTemplate.Database.Models
 
         public virtual DateTime? PublishDate { get; set; }
 
-        public virtual string Author { get; set; }
-
-        public virtual string Source { get; set; }
-
-        public virtual int ViewCount { get; set; }
+        public static char TagsSeparator = ',';
     }
 }
