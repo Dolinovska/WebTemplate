@@ -307,8 +307,8 @@
     <Content Include="Views\News\PopularTags.cshtml" />
     <Content Include="Views\News\PopularNews.cshtml" />
     <Content Include="Views\News\LatestNews.cshtml" />
-    <Content Include="Views\News\Counters.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\News\Counters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
