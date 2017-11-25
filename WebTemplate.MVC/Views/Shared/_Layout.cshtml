@@ -3,37 +3,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>Zvistka</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/base.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/vendor.css">
+    <link rel="stylesheet" href="~/Content/main.css">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @{ Html.RenderAction("MenuList", "Categories"); }
-                </ul>
-            </div>
+@*<header class="s-header">
+    <nav class="header-nav-wrap pull-left" style="left: 120px; font-family:'librebaskerville-bold', serif; font-size: 4rem;">
+        <ul class="header-nav">
+            <li class="current"><a class="smoothscroll" href="@Url.Action("Index", "News")" title="home">Звістка</a></li>
+        </ul>
+    </nav>
+
+    <nav class="header-nav-wrap">
+        <ul class="header-nav">
+            <li class="current"><a class="smoothscroll" href="@Url.Action("Index", "News")" title="home">Головна</a></li>
+            <li><a class="smoothscroll" href="#about" title="about">Про нас</a></li>
+            <li><a class="smoothscroll" href="№works" title="blog">Категорії</a></li>
+            <li><a class="smoothscroll" href="#blog" title="works">Новини</a></li>
+
+            <li><a class="smoothscroll" href="#contact" title="contact">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <a class="header-menu-toggle" href="#0"><span>Меню</span></a>
+
+</header>*@ 
+@*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                <li>@Html.ActionLink("News", "Index", "News")</li>
+            </ul>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+</div>*@
+<div class="container">
+    @RenderBody()
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>

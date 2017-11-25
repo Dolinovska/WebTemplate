@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,12 +212,6 @@
     <Content Include="Images\wheel-500.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="fonts\librebaskerville-bold-webfont.woff" />
-    <Content Include="fonts\librebaskerville-bold-webfont.woff2" />
-    <Content Include="fonts\librebaskerville-italic-webfont.woff" />
-    <Content Include="fonts\librebaskerville-italic-webfont.woff2" />
-    <Content Include="fonts\librebaskerville-regular-webfont.woff" />
-    <Content Include="fonts\librebaskerville-regular-webfont.woff2" />
     <Content Include="fonts\montserrat\montserrat-black-webfont.woff" />
     <Content Include="fonts\montserrat\montserrat-black-webfont.woff2" />
     <Content Include="fonts\montserrat\montserrat-bold-webfont.woff" />
@@ -239,6 +234,30 @@
     <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.ttf" />
     <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.woff" />
     <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.woff2" />
+    <Content Include="fonts\Roboto-Black.ttf" />
+    <Content Include="fonts\Roboto-BlackItalic.ttf" />
+    <Content Include="fonts\Roboto-Bold.ttf" />
+    <Content Include="fonts\Roboto-BoldItalic.ttf" />
+    <Content Include="fonts\Roboto-Italic.ttf" />
+    <Content Include="fonts\Roboto-Light.ttf" />
+    <Content Include="fonts\Roboto-LightItalic.ttf" />
+    <Content Include="fonts\Roboto-Medium.ttf" />
+    <Content Include="fonts\Roboto-MediumItalic.ttf" />
+    <Content Include="fonts\Roboto-Regular.ttf" />
+    <Content Include="fonts\Roboto-Thin.ttf" />
+    <Content Include="fonts\Roboto-ThinItalic.ttf" />
+    <Content Include="fonts\RobotoCondensed-Bold.ttf" />
+    <Content Include="fonts\RobotoCondensed-BoldItalic.ttf" />
+    <Content Include="fonts\RobotoCondensed-Italic.ttf" />
+    <Content Include="fonts\RobotoCondensed-Light.ttf" />
+    <Content Include="fonts\RobotoCondensed-LightItalic.ttf" />
+    <Content Include="fonts\RobotoCondensed-Regular.ttf" />
+    <Content Include="fonts\librebaskerville\librebaskerville-bold-webfont.woff" />
+    <Content Include="fonts\librebaskerville\librebaskerville-bold-webfont.woff2" />
+    <Content Include="fonts\librebaskerville\librebaskerville-italic-webfont.woff" />
+    <Content Include="fonts\librebaskerville\librebaskerville-italic-webfont.woff2" />
+    <Content Include="fonts\librebaskerville\librebaskerville-regular-webfont.woff" />
+    <Content Include="fonts\librebaskerville\librebaskerville-regular-webfont.woff2" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -289,6 +308,7 @@
     <Content Include="Views\News\PopularNews.cshtml" />
     <Content Include="Views\News\LatestNews.cshtml" />
     <Content Include="Views\News\Counters.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
