@@ -22,6 +22,13 @@ namespace WebTemplate.MVC.Controllers
             return View(categories);
         }
 
+        [ChildActionOnly]
+        public PartialViewResult MenuList()
+        {
+            var categories = this._repository.GetAll<Category>();
+            return this.PartialView(categories);
+
+        }
         public ActionResult Details(int? id)
         {
             if (id == null)

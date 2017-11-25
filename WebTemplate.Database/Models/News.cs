@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace WebTemplate.Database.Models
+﻿namespace WebTemplate.Database.Models
 {
+    using System;
+
     // one to many with category
     // many to many with tags
     public class News
@@ -16,12 +16,12 @@ namespace WebTemplate.Database.Models
 
         public virtual string Tags { get; set; }
 
-        public static char TagsSeparator = ',';
-
         public virtual string OriginalUrl { get; set; }
 
         public virtual string Summary { get; set; }
 
         public virtual DateTime? PublishDate { get; set; }
+
+        public static char TagsSeparator = ',';
     }
 }

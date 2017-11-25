@@ -19,8 +19,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("News", "Index", "News")</li>
+                    @{ Html.RenderAction("MenuList", "Categories"); }
                 </ul>
             </div>
         </div>
