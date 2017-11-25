@@ -1797,6 +1797,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transition: all 0.5s ease-in-out;
 }
 
+
+.category-main .btn {
+    color: #2ed3ae !important;
+}
+
 .home-content__buttons .btn:hover, 
 .home-content__buttons .btn:focus {
     background: #FFFFFF !important;
@@ -2077,12 +2082,15 @@ html.no-csstransitions .home-content__main {
         position: static;
         text-align: left;
     }
-    .home-content__buttons .btn {
+    /*.home-content__buttons .btn {
         display: inline-block;
         margin-right: .9rem;
-    }
+    }*/
 }
-
+.home-content__buttons .btn {
+    display: inline-block !important;
+    margin-right: .9rem;
+}
 @media only screen and (max-width: 800px) {
     .home-content h3 {
         font-size: 1.6rem;
@@ -3026,7 +3034,7 @@ html.no-csstransitions .home-content__main {
     /* FF3.6-15 */
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, transparent 70deg, rgba(0, 0, 0, 0.65) 100%);
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
 }
 
 
@@ -3127,10 +3135,17 @@ html.no-csstransitions .home-content__main {
     border-bottom: 1px solid white;
 }
 
+.form-field:focus div .form-control:focus {
+    color: white;
+    border-bottom: 1px solid white !important;
+    box-shadow: none !important;
+}
+
 .contact__form button {
     margin-top: 4.2rem;
     background-color: #FF4500;
     border-color: #FF4500;
+    border-radius: 5px;
 }
 
 .message-warning, .message-success {

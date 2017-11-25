@@ -40,7 +40,9 @@
             <h3>Новини</h3>
             <h1>Знайди цікаву категорію та тег</h1>
 
-            <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+            <p class="lead">
+                Також Ви можете здійснювати пошук за категорією чи тегом. Оберіть зі списку категорію, яку Вам потрібно і ми знайдемо новини для Вас у межах даної категорії. Щоб здійснити пошук за тегом потрібно ввести тег у відповідне поле. 
+            </p>
         </div>
         <div class="row about-content about-content--buttons">
 
@@ -54,11 +56,11 @@
         </div>
     </div>
 
-    @using (Html.BeginForm("Index", "News", FormMethod.Get))
+    @*@using (Html.BeginForm("Index", "News", FormMethod.Get))
     {
         <div class="form-horizontal">
             @*<h4>News</h4>
-                <hr />*@
+                <hr />
 
             <div class="form-group">
                 <div class="col-md-10">
@@ -67,9 +69,33 @@
                 </div>
             </div>
         </div>
-    }
+    }*@
+    
+        <div class="home-content__buttons category-main">
+            <a href="@Url.Action("Details","News")" class="smoothscroll btn btn--stroke">
+                Всі категорії
+            </a>
+            <a href="#" class="smoothscroll btn btn--stroke">
+                Політика
+            </a>
+            <a href="#" class="smoothscroll btn btn--stroke">
+                Бізнес
+            </a>
+            <a href="#" class="smoothscroll btn btn--stroke">
+                Спорт
+            </a>
+            <a href="#" class="smoothscroll btn btn--stroke">
+                Технології
+            </a>
+            <a href="#" class="smoothscroll btn btn--stroke">
+                Автомобілі
+            </a>
+            <a href="#" class="smoothscroll btn btn--stroke">
+                Інше
+            </a>
+        </div>
 
-    <div class="row masonry-wrap">
+<div class="row masonry-wrap">
         <div class="masonry">
             <div class="masonry__brick">
                 <div class="item-folio">
@@ -82,14 +108,14 @@
                         </a>
                     </div>
 
-                    <div class="item-folio__text">
+                    <a class="item-folio__text action-news">
                         <h3 class="item-folio__title">
                             The Beetle
                         </h3>
                         <p class="item-folio__cat">
-                            Web Development
+                            Детальніше ...
                         </p>
-                    </div>
+                    </a>
 
                     <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
                         <i class="im im-link"></i>
@@ -115,10 +141,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Lighthouse
+                            Пасивний будинок
                         </h3>
                         <p class="item-folio__cat">
-                            Web Design
+                            Детальніше ...
                         </p>
                     </div>
 
@@ -146,10 +172,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Salad
+                            Новий ресторан у ІФ
                         </h3>
                         <p class="item-folio__cat">
-                            Branding
+                            Детальніше ...
                         </p>
                     </div>
 
@@ -177,10 +203,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Woodcraft
+                            Меблевий салон знижки
                         </h3>
                         <p class="item-folio__cat">
-                            Branding
+                            Детальніше ...
                         </p>
                     </div>
 
@@ -208,10 +234,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Skaterboy
+                            Спортфест у Іф
                         </h3>
                         <p class="item-folio__cat">
-                            Web Development
+                            Детальніше ...
                         </p>
                     </div>
 
@@ -239,10 +265,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Liberty
+                            Новий монумент
                         </h3>
                         <p class="item-folio__cat">
-                            Branding
+                            Детальніше ...
                         </p>
                     </div>
 
@@ -270,10 +296,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Minimalismo
+                            Фотошкола оголошує набір
                         </h3>
                         <p class="item-folio__cat">
-                            Web Design
+                            Детальніше ...
                         </p>
                     </div>
 
@@ -301,10 +327,10 @@
 
                     <div class="item-folio__text">
                         <h3 class="item-folio__title">
-                            Lady Shutterbug
+                            Збережемо Карпати
                         </h3>
                         <p class="item-folio__cat">
-                            Branding
+                            Детальніше ...
                         </p>
                     </div>
 
