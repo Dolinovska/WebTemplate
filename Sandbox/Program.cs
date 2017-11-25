@@ -24,6 +24,7 @@ namespace Sandbox
             {
                 article.Category = repo.Find<Category>(1);
                 repo.Add(article);
+
                 Console.WriteLine(article.Title + " " + article.Text);
             }
 
