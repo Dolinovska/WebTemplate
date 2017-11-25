@@ -82,7 +82,7 @@ namespace WebTemplate.MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                news.Name = newsEditModel.Name;
+                news.Title = newsEditModel.Title;
                 news.Tags.Clear();
 
                 newsEditModel.SelectedTagsIds.Select(id => _repository.Find<Tag>(id)).ToList()

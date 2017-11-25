@@ -13,8 +13,8 @@
     public class NewsEditModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        public string Title { get; set; }
+        public string Text { get; set; }
 
         [Display(Name = "Tags")]
         public int[] SelectedTagsIds { get; set; }
@@ -31,8 +31,8 @@
         public NewsEditModel(News news, IEnumerable<Category> allCategories, IEnumerable<Tag> allTags)
         {
             this.Id = news.Id;
-            this.Name = news.Name;
-            this.Price = news.Price;
+            this.Title = news.Title;
+            this.Text = news.Text;
 
             this.TagsCheckboxes = allTags.Select(p => new Checkbox(p.Name, p.Id.ToString(), false)).ToList();
             this.TagsCheckboxes.Where(tc => news.Tags.Any(t => t.Name.Equals(tc.Name, StringComparison.OrdinalIgnoreCase))).ToList()

@@ -25,9 +25,9 @@ namespace WebTemplate.MVC.ViewModels.Tags
         {
             this.Id = tag.Id;
             this.Name = tag.Name;
-            this.NewsCheckboxes = allNews.Select(t => new Checkbox(t.Name, t.Id.ToString(), false)).ToList();
+            this.NewsCheckboxes = allNews.Select(t => new Checkbox(t.Title, t.Id.ToString(), false)).ToList();
 
-            this.NewsCheckboxes.Where(pc => tag.News.Any(p => p.Name.Equals(pc.Name, StringComparison.OrdinalIgnoreCase))).ToList()
+            this.NewsCheckboxes.Where(pc => tag.News.Any(p => p.Title.Equals(pc.Name, StringComparison.OrdinalIgnoreCase))).ToList()
                 .ForEach(c => c.IsChecked = true);
         }
     }
