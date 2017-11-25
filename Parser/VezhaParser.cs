@@ -28,7 +28,8 @@ namespace Parser
                         Tags = string.Join(News.TagsSeparator.ToString(), item.Categories.Select(c => c.Name)),
                         PublishDate = item.PublishDate.UtcDateTime,
                         OriginalUrl = item.Id,
-                        //Author = item.Authors.Select(a => string.Join(News.TagsSeparator.ToString(), a.Name.))
+                        Author = "Телерадіокомпанія \"ВЕЖА\"",
+                        Source = "Телерадіокомпанія \"ВЕЖА\""
                     };
                     
                     var rss = xmldoc.Element("rss");
