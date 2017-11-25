@@ -30,11 +30,11 @@ namespace Parser
                         Author = "Телерадіокомпанія \"ВЕЖА\"",
                         Source = "Телерадіокомпанія \"ВЕЖА\""
                     };
-                    
+                    XNamespace content = "http://purl.org/rss/1.0/modules/content/";
                     var rss = xmldoc.Element("rss");
                     var channel = rss.Element("channel");
                     var elements = channel.Elements("item").ToList();
-                    var txt = elements.FirstOrDefault(e => e.Element("guid").Value == item.Id).Element("content").Value;
+                    var txt = elements.FirstOrDefault(e => e.Element("guid").Value == item.Id).Element(content.GetName("encoded")).Value;
                     article.Text = txt;
 
                     result.Add(article);
