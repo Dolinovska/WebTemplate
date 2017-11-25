@@ -32,6 +32,8 @@ namespace WebTemplate.MVC.ViewModels.Newss
 
         public List<DuplicateNews> DuplicateNews { get; set; }
 
+        public virtual string Image { get; set; }
+
 
         public NewsDetailsModel()
         {
@@ -51,6 +53,7 @@ namespace WebTemplate.MVC.ViewModels.Newss
             this.Summary = news.Summary;
             this.ViewsCount = news.ViewsCount;
             this.PublishDate = news.PublishDate;
+            this.Image = news.Image;
 
             this.Category = news.Category?.Name;
 
