@@ -1,16 +1,12 @@
-﻿namespace WebTemplate.MVC.ViewModels.Newss
+﻿using System;
+
+namespace WebTemplate.MVC.ViewModels.Newss
 {
-    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web.Mvc;
 
     using WebTemplate.Database.Models;
 
-    using News = WebTemplate.Database.Models.News;
-
-    public sealed class NewsEditModel
+    public class NewsDetailsModel
     {
         public int Id { get; set; }
 
@@ -32,16 +28,17 @@
 
         public string Source { get; set; }
 
+        public string Category { get; set; }
 
-        [Display(Name = "Category")]
-        public int SelectedCategory { get; set; }
-        public IEnumerable<SelectListItem> Categories { get; set; }
+        public List<DuplicateNews> DuplicateNews { get; set; }
 
-        public NewsEditModel()
+
+        public NewsDetailsModel()
         {
+            DuplicateNews = new List<DuplicateNews>();
         }
 
-        public NewsEditModel(News news, IEnumerable<Category> allCategories)
+        public NewsDetailsModel(News news)
         {
             this.Id = news.Id;
             this.Title = news.Title;
@@ -55,14 +52,16 @@
             this.ViewsCount = news.ViewsCount;
             this.PublishDate = news.PublishDate;
 
-            SelectedCategory = news.Category?.Id ?? 0;
+            this.Category = news.Category?.Name;
 
-            this.Categories = allCategories.Select(c => new SelectListItem
-            {
-                Text = c.Name,
-                Value = c.Id.ToString(),
-                Selected = c.Id == this.SelectedCategory
-            });
+            DuplicateNews = new List<DuplicateNews>();
         }
+
+
+    }
+    public class DuplicateNews
+    {
+        public string Source { get; set; }
+        public string OriginalUrl { get; set; }
     }
 }

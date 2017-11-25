@@ -24,10 +24,10 @@
 
         public int ViewsCount { get; set; }
 
-        public static char TagsSeparator = ',';
-
         public virtual string Author { get; set; }
 
         public virtual string Source { get; set; }
+
+        public static char TagsSeparator = ',';
     }
 }
