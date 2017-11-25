@@ -6,6 +6,7 @@ using WebTemplate.Database.Models;
 
 namespace WebTemplate.MVC.Controllers
 {
+    using Images;
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
@@ -15,10 +16,12 @@ namespace WebTemplate.MVC.Controllers
     public class NewsController : Controller
     {
         private readonly Repository _repository;
+        private readonly IImageManager _imageManager;
 
         public NewsController()
         {
             _repository = new Repository();
+            _imageManager = new ImageManager();
         }
 
         [HttpGet]
@@ -99,13 +102,17 @@ namespace WebTemplate.MVC.Controllers
                 news.Tags = newsEditModel.Tags;
 
                 news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
+                news.Image = _imageManager.Save(newsEditModel.PostedImage);
+
                 _repository.Add(news);
                 _repository.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
             var allCategories = _repository.GetAll<Category>();
             newsEditModel = new NewsEditModel(news, allCategories);
+
             return View(newsEditModel);
         }
 
@@ -140,9 +147,12 @@ namespace WebTemplate.MVC.Controllers
                 news.Tags = newsEditModel.Tags;
 
                 news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
+                news.Image = _imageManager.Save(newsEditModel.PostedImage);
+
                 _repository.Update(news);
                 _repository.SaveChanges();
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Index", "News");
             }
 
             var allCategories = _repository.GetAll<Category>();
@@ -218,6 +228,7 @@ namespace WebTemplate.MVC.Controllers
                 TagsCount = news.SelectMany(n => n.Tags.Split(News.TagsSeparator)).Distinct().Count(),
                 ViewsCount = news.Sum(n => n.ViewsCount)
             };
+
             return PartialView(counters);
         }
 

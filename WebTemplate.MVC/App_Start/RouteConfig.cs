@@ -14,6 +14,8 @@ namespace WebTemplate.MVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "News", action = "Index", id = UrlParameter.Optional }
             );
+
+            
         }
     }
 }
