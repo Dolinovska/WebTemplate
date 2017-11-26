@@ -58,20 +58,21 @@
         
         <div class="row masonry-wrap">
             <div class="masonry">
-            @foreach (var item in Model)
+            
+                @foreach (var item in Model)
             {
                 <div class="masonry__brick" style="padding: 6px;">
                     <div class="item-folio">
 
                         <div class="item-folio__thumb">
-                            <a href="~/Images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
-                                <img src="~/Images/portfolio/beetle.jpg"
-                            srcset="~/Images/portfolio/beetle.jpg 1x, ~/Images/portfolio/beetle@2x.jpg 2x" alt="">
+                            <a href="~/Data/Images/@item.Image" class="thumb-link" title="The Beetle Car" data-size="1050x700">
+                                <img src="~/Data/Images/@item.Image"
+                                     srcset="~/Data/Images/@item.Image 1x, ~/Data/Images/@item.Image 2x" alt="@item.Title">
                                 <span class="shadow-overlay"></span>
                             </a>
                         </div>
 
-                        <a class="item-folio__text action-news" href="@Url.Action("Details", "News", new {id = item.Id})" style="text-decoration: none">
+                        <a class="item-folio__text action-news" href="@Url.Action("Details", "News", new { id = item.Id })" style="text-decoration: none">
                             <h3 class="item-folio__title">
                                 @item.Title
                             </h3>
