@@ -124,10 +124,38 @@ namespace WebTemplate.MVC.Controllers
         }
         public ActionResult Order()
         {
-            return View();
+            var order = new Order();
+            var orderModel = new OrderModel(order);
+
+            return View(orderModel);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Order(OrderModel orderModel)
+        {
+            var order = new Order();
+
+            if (ModelState.IsValid)
+            {
+                order.Text = orderModel.Text;
+                order.FullName = orderModel.FullName;
+                order.Number = orderModel.Number;
+
+
+                _repository.Add(order);
+                _repository.SaveChanges();
+
+                // TODO: Implement!!!
+                var subscription = _repository.GetAll<Subscription>().LastOrDefault();
+                _pushNotification.Push(subscription, order.Text);
+
+                return RedirectToAction("Index");
+            }
+            orderModel = new OrderModel(order);
+            return View(orderModel);
         }
 
-       
+
 
         public ActionResult Edit(int? id)
         {

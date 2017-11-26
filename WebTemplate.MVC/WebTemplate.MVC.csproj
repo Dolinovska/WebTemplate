@@ -142,6 +142,7 @@
     <Compile Include="ViewModels\Checkbox.cs" />
     <Compile Include="ViewModels\Counters.cs" />
     <Compile Include="ViewModels\Newss\NewsDetailsModel.cs" />
+    <Compile Include="ViewModels\Newss\OrderModel.cs" />
     <Compile Include="ViewModels\Newss\NewsEditModel.cs" />
     <Compile Include="ViewModels\TagStat.cs" />
   </ItemGroup>
@@ -178,6 +179,7 @@
     <Content Include="Images\avatars\user-05.jpg" />
     <Content Include="Images\blog\blog-bg-01.jpg" />
     <Content Include="Images\blog\blog-bg-02.jpg" />
+    <Content Include="Images\business-2297833_1920.jpg" />
     <Content Include="Images\contact-bg.jpg" />
     <Content Include="Images\count-bg.jpg" />
     <Content Include="Images\favicon.ico" />
@@ -186,11 +188,11 @@
     <Content Include="Images\fons\4.jpg" />
     <Content Include="Images\fons\5.jpg" />
     <Content Include="Images\fons\6.jpg" />
-    <Content Include="Images\fons\accountant-blogs.jpg" />
+    <Content Include="Images\accountant-blogs.jpg" />
     <Content Include="Images\fons\IMG_26112017_000149_0.png" />
     <Content Include="Images\fons\iStock_000011847080_Small-1260x840.jpg" />
     <Content Include="Images\fons\iStock_000036485476Large-web.jpg" />
-    <Content Include="Images\fons\man-hands-reading-boy.jpg" />
+    <Content Include="Images\man-hands-reading-boy.jpg" />
     <Content Include="Images\fons\o-NEWSPAPERS-facebook.jpg" />
     <Content Include="Images\fons\reading-newspaper2.jpg" />
     <Content Include="Images\fons\s3-news-tmp-116020-newspapers-444447_1920--default--1280.jpg" />
@@ -344,7 +346,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Images\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
