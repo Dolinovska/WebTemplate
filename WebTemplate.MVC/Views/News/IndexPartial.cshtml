@@ -4,7 +4,7 @@
 
     @foreach (var item in Model)
     {
-        <div class="masonry__brick" style="padding: 6px;">
+        <div class="masonry__brick" style="padding: 12px;">
             <div class="item-folio">
 
                 <div class="item-folio__thumb">
@@ -19,22 +19,22 @@
                     <h3 class="item-folio__title">
                         @item.Title
                     </h3>
-                    <p>
+                    <p style="line-height: 1.2;opacity: 0.8;">
                         @Html.Raw(item.Summary)
                     </p>
 
-                    <div class="blog-cat">
+                    <div>
                         <a href="@Url.Action("Index", "News", new {tags = item.Tags})">@item.Tags</a>
                     </div>
                 </a>
 
-                <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                <a href="@item.OriginalUrl" class="item-folio__project-link" title="Project link">
                     <i class="im im-link"></i>
                 </a>
 
-                <div class="item-folio__caption">
-                    
-                </div>
+                @*<div class="item-folio__caption">
+                    <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                </div>*@
 
             </div> <!-- end item-folio -->
         </div>

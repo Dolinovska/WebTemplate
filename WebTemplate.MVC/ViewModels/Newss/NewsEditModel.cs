@@ -14,10 +14,13 @@
     public sealed class NewsEditModel
     {
         public int Id { get; set; }
+        [Required]
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
+        [Required]
         [Display(Name = "Текст")]
         public string Text { get; set; }
+        [Required]
         [Display(Name = "Теги")]
         public string Tags { get; set; }
 
@@ -28,16 +31,21 @@
         public DateTime? PublishDate { get; set; }
 
         public int ViewsCount { get; set; }
+
+        [Required]
         [Display(Name = "Автор")]
         public string Author { get; set; }
 
+        [Required]
         public string Source { get; set; }
 
 
+        [Required]
         [Display(Name = "Категорія")]
         public int SelectedCategory { get; set; }
         public IEnumerable<SelectListItem> Categories { get; set; }
 
+        [Required]
         [Display(Name = "Cвітлина")]
         public HttpPostedFileBase PostedImage { get; set; }
 

@@ -41,6 +41,10 @@
     src: url('../fonts/Roboto-BlackItalic.ttf') format('truetype');
 }
 
+.bootstrap-tagsinput {
+    width: 100% !important;
+}
+
 .ignore-padding {
     padding: 0 !important;
 }
@@ -198,16 +202,27 @@ body {
 footer {
     background-color: #2ed3ae;
 }
+p iframe {
+    max-height: 250px !important;
+}
+td a {
+    color: #FF4500;
+    text-decoration: none;
+}
+td a:hover {
+    color: #333;
+    text-decoration: none;
+}
 
 a {
-    color: #FF4500;
+    color: #fff;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     text-decoration: none;
 }
 
     a:hover, a:focus, a:active {
-        color: #191A3F;
+        color: #f1f1f1;
     }
 
 .skill-bars li .progress span {
@@ -1963,7 +1978,7 @@ body .title {
 
 
 .category-main .btn {
-    color: #2ed3ae !important;
+    color: ¹#ffffff !important;
 }
 
 .home-content__buttons .btn:hover,

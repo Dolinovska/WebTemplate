@@ -21,11 +21,11 @@
     </div>
 
     <div class="col-full text-center">
-        <h3 class="ignore-margin">@Model.Text</h3>
+        <h4 class="ignore-margin">@Html.Raw(Model.Text)</h4>
     </div>
 
-    <img class="image-details" src="~/Images/contact-bg.jpg" />
-    @*<img width="200" height="200" src="~/Data/Images/@Model.Image" />*@
+    @*<img class="image-details" src="~/Images/contact-bg.jpg" />*@
+    <img class="image-details"  src="~/Data/Images/@Model.Image" />
 
     <div class="col-full text-center">
         <h3 class="ignore-margin">

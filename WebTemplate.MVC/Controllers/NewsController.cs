@@ -6,6 +6,8 @@ using WebTemplate.Database.Models;
 
 namespace WebTemplate.MVC.Controllers
 {
+    using System;
+
     using Images;
     using PushNotification;
     using System;
@@ -168,6 +170,7 @@ namespace WebTemplate.MVC.Controllers
 
             return View(newsEditModel);
         }
+
         public ActionResult Order()
         {
             var order = new Order();
@@ -175,33 +178,6 @@ namespace WebTemplate.MVC.Controllers
 
             return View(orderModel);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Order(OrderModel orderModel)
-        {
-            var order = new Order();
-
-            if (ModelState.IsValid)
-            {
-                order.Text = orderModel.Text;
-                order.FullName = orderModel.FullName;
-                order.Number = orderModel.Number;
-
-
-                _repository.Add(order);
-                _repository.SaveChanges();
-
-                // TODO: Implement!!!
-                var subscription = _repository.GetAll<Subscription>().LastOrDefault();
-                _pushNotification.Push(subscription, order.Text);
-
-                return RedirectToAction("Index");
-            }
-            orderModel = new OrderModel(order);
-            return View(orderModel);
-        }
-
-
 
         public ActionResult Edit(int? id)
         {
@@ -333,7 +309,7 @@ namespace WebTemplate.MVC.Controllers
             var separatedTags = tags.Split(News.TagsSeparator);
             var newsTags = news.Tags.Split(News.TagsSeparator);
 
-            return newsTags.Any(newsTag => separatedTags.Contains(newsTag));
+            return newsTags.Any(newsTag => separatedTags.Any(st => st.Equals(newsTag, StringComparison.CurrentCultureIgnoreCase)));
         }
 
         private IEnumerable<News> FilterBySimilarContent(IEnumerable<News> newsToFilter)
