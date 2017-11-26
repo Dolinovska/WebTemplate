@@ -344,6 +344,7 @@
     <Content Include="Views\News\AllTags.cshtml" />
     <Content Include="Views\News\Order.cshtml" />
     <Content Include="Views\News\IndexPartial.cshtml" />
+    <Content Include="Views\News\Print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Images\" />

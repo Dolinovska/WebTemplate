@@ -58,6 +58,14 @@ namespace WebTemplate.MVC.Controllers
         }
 
         [HttpGet]
+        public ActionResult Print(string category, string tags)
+        {
+            var categoryNews = FilterNews(category, tags);
+
+            return View(categoryNews);
+        }
+
+        [HttpGet]
         public PartialViewResult IndexPartial(string category, string tags)
         {
             var categoryNews = FilterNews(category, tags);
