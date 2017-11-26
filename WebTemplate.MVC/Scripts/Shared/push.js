@@ -175,28 +175,35 @@ function updateSubscriptionOnServer(subscription) {
   //}
 }
 
-//const title = 'Push Codelab';
+
+
+
+//const title = 'Новину Додано!';
 //const options = {
-//  body: 'Yay it works.',
-//  icon: 'images/icon.png'
+//  body: '',
+//  //icon: 'images/icon.png'
 //};
 
 //const notificationPromise = self.registration.showNotification(title, options);
 //event.waitUntil(notificationPromise);
 
 
-var $form = $('#create-news-form');
-var $title = $('#Title');
 
-$form.submit(function () {
-  var self = $(this);
-  console.log('Submit');
 
-  var title = 'Новина!';
-  var options = {
-    body: $title.val()
-  };
-});
 
-var notificationPromise = self.registration.showNotification(title, options);
-event.waitUntil(notificationPromise);
+
+//var $form = $('#create-news-form');
+//var $title = $('#Title');
+
+//$form.submit(function () {
+//  var self = $(this);
+//  console.log('Submit');
+
+//  var title = 'Новина!';
+//  var options = {
+//    body: $title.val()
+//  };
+//});
+
+//var notificationPromise = self.registration.showNotification(title, options);
+//event.waitUntil(notificationPromise);
