@@ -27,8 +27,7 @@ namespace WebTemplate.MVC.Controllers
             _pushNotification = new WebPushNotification();
         }
 
-        [HttpGet]
-        public ActionResult Index(string category, string tags)
+        private IEnumerable<News> FilterNews(string category, string tags)
         {
             var categoryNews = this._repository.GetAll<News>();
 
@@ -45,7 +44,23 @@ namespace WebTemplate.MVC.Controllers
 
             categoryNews = FilterBySimilarContent(categoryNews);
 
+            return categoryNews;
+        }
+
+        [HttpGet]
+        public ActionResult Index(string category, string tags)
+        {
+            var categoryNews = FilterNews(category, tags);
+
             return View(categoryNews);
+        }
+
+        [HttpGet]
+        public PartialViewResult IndexPartial(string category, string tags)
+        {
+            var categoryNews = FilterNews(category, tags);
+
+            return PartialView(categoryNews);
         }
 
         public ActionResult Details(int? id)
