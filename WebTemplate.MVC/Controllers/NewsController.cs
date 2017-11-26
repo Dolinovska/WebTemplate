@@ -7,6 +7,7 @@ using WebTemplate.Database.Models;
 namespace WebTemplate.MVC.Controllers
 {
     using Images;
+    using PushNotification;
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
@@ -17,11 +18,13 @@ namespace WebTemplate.MVC.Controllers
     {
         private readonly Repository _repository;
         private readonly IImageManager _imageManager;
+        private readonly IPushNotification _pushNotification;
 
         public NewsController()
         {
             _repository = new Repository();
             _imageManager = new ImageManager();
+            _pushNotification = new WebPushNotification();
         }
 
         [HttpGet]
@@ -106,6 +109,10 @@ namespace WebTemplate.MVC.Controllers
 
                 _repository.Add(news);
                 _repository.SaveChanges();
+
+                // TODO: Implement!!!
+                var subscription = _repository.GetAll<Subscription>().LastOrDefault();
+                _pushNotification.Push(subscription, news.Title);
 
                 return RedirectToAction("Index");
             }

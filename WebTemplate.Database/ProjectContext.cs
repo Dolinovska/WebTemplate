@@ -14,6 +14,7 @@ namespace WebTemplate.Database
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

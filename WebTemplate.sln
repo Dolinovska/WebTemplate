@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Images", "Images\Images.csproj", "{FCA777F5-ACDC-459B-97A1-7B4AC908952F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushNotification", "PushNotification\PushNotification.csproj", "{BD56C6CB-A40B-490D-A44D-9EC71E450511}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FCA777F5-ACDC-459B-97A1-7B4AC908952F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCA777F5-ACDC-459B-97A1-7B4AC908952F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCA777F5-ACDC-459B-97A1-7B4AC908952F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD56C6CB-A40B-490D-A44D-9EC71E450511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD56C6CB-A40B-490D-A44D-9EC71E450511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD56C6CB-A40B-490D-A44D-9EC71E450511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD56C6CB-A40B-490D-A44D-9EC71E450511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
