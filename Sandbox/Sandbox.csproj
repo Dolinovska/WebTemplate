@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gcm.cs" />
+    <Compile Include="Parse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,6 +62,10 @@
     <ProjectReference Include="..\Parser\Parser.csproj">
       <Project>{5a47bf24-f31b-4ba1-873c-f3c2a5203fc1}</Project>
       <Name>Parser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PushNotification\PushNotification.csproj">
+      <Project>{bd56c6cb-a40b-490d-a44d-9ec71e450511}</Project>
+      <Name>PushNotification</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebTemplate.Database\WebTemplate.Database.csproj">
       <Project>{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}</Project>

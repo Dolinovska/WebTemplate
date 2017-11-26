@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Subscription.cs" />
     <Compile Include="ProjectContext.cs" />
     <Compile Include="ProjectContextInitializer.cs" />
     <Compile Include="Repository.cs" />
