@@ -89,6 +89,20 @@ body {
     border-radius: 5px;
 }
 
+
+.class-item {
+    padding-bottom: 0;
+    width: calc(100% - 300px);
+    right: 0;
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    padding-right: 15%;
+    text-align: center;
+    padding-bottom: 0;
+    padding-left: 250px;
+}
+
 .masonry__brick {
     min-height: 75px;
     padding: 6px;
@@ -213,6 +227,11 @@ td a:hover {
     color: #333;
     text-decoration: none;
 }
+
+iframe {
+    display: none;
+}
+
 
 a {
     color: #fff;
@@ -372,7 +391,7 @@ blockquote {
     blockquote p {
         font-family: "Roboto-Regular", sans-serif;
         padding: 0;
-        font-size: 2.1rem;
+        font-size: 1.5rem;
         line-height: 1.857;
         color: #333;
     }
@@ -1526,6 +1545,7 @@ input[type="button"] {
         letter-spacing: .2rem;
         color: #000000;
         margin-top: -.9rem;
+        padding-top: 12px;
     }
 
         .blog-list .blog-cat a {
@@ -1969,22 +1989,30 @@ body .title {
         display: block;
         width: 210px;
         border-color: #FFFFFF;
-        color: #FFFFFF;
+        color: #333;
         margin: 1.5rem 0 0 0;
         letter-spacing: .25rem;
         -webkit-transition: all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
     }
 
+#print-link {
+    text-decoration: none;
+}
 
-.category-main .btn {
+    #print-link:hover,
+    #print-link:focus {
+        color: #FF4500;
+    }
+
+    .category-main .btn {
     color: ¹#ffffff !important;
 }
 
 .home-content__buttons .btn:hover,
 .home-content__buttons .btn:focus {
     background: #FFFFFF !important;
-    color: #000000;
+    color: #2ed3ae;
 }
 
 .home-content__scroll {
