@@ -18,6 +18,7 @@
     ================================================== -->
     <link href="~/Content/base.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/vendor.css">
+    <link rel="stylesheet" href="~/Content/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="~/Content/main.css">
 
     <!-- script
@@ -33,349 +34,121 @@
     <link rel="icon" href="~/Images/favicon.ico" type="image/x-icon">
 </head>
 
-<section id="works" class="s-works target-section">
+<div id="works" class="s-works target-section sector-main">
+
+    <div class=" row home-content__buttons category-main" style="position: initial;">
+        @{Html.RenderAction("MenuList", "Categories");}
+    </div>
+
+    <div class="row" style="padding: 25px 0;max-width: 1200px; text-align: center;">
+        <h3 class="title">Теги:</h3>
+        @{Html.RenderAction("AllTags", "News");}
+    </div>
+</div>
+
+
+<div class="row blog-content">
+    <div class="col-full">
+        <div class="row narrow section-intro has-bottom-sep" style="padding-top: 50px;">
+            <div class="col-full">
+                <h3>Унікальні новини</h3>
+            </div>
+        </div>
+        <div class="blog-list block-1-2 block-tab-full" style="background-color: #f1f1f1;">
+            @foreach (var item in Model)
+            {
+
+                <article class="col-block box-shadow">
+
+                    <div class="blog-date">
+                        <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.PublishDate</a>
+                    </div>
+
+                    <h2 class="h01">
+                        <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.Title</a>
+                    </h2>
+                    <p>
+                        @Html.Raw(item.Summary)
+                    </p>
+
+                    <div class="blog-cat">
+                        <a href="@Url.Action("Index", "News", new {tags = item.Tags})">@item.Tags</a>
+                    </div>
+                    <div>
+                        <div>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</div>
+<footer>
 
     <div class="row narrow section-intro has-bottom-sep">
         <div class="col-full">
-            <h3>Новини</h3>
             <h1>Знайди цікаву категорію та тег</h1>
 
             <p class="lead">
-                Також Ви можете здійснювати пошук за категорією чи тегом. Оберіть зі списку категорію, яку Вам потрібно і ми знайдемо новини для Вас у межах даної категорії. Щоб здійснити пошук за тегом потрібно ввести тег у відповідне поле. 
+                Ви можете здійснювати пошук за категорією чи тегами. як саме? Оберавши зі списку категорію, яка Вас цікавить і ми знайдемо унікальні новини, які не повторюються, для Вас у межах даної категорії. Щоб здійснити пошук за тегом потрібно ввести тег у відповідне поле.
             </p>
         </div>
         <div class="row about-content about-content--buttons">
-
             <div class="col-six tab-full left">
                 <a href="@Url.Action("Create","News")" class="btn btn--primary full-width">Додати новину</a>
             </div>
             <div class="col-six tab-full right">
                 <a href="#0" class="btn full-width">Замовити примірник</a>
             </div>
-
         </div>
     </div>
+</footer>
 
-    @*@using (Html.BeginForm("Index", "News", FormMethod.Get))
-    {
-        <div class="form-horizontal">
-            @*<h4>News</h4>
-                <hr />
+<div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
 
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextBox("Tags", Request.QueryString["Tags"])
-                    @Html.Hidden("category", Request.QueryString["category"])
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title="Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    }*@
-    
-        <div class="home-content__buttons category-main">
-            <a href="@Url.Action("Details","News")" class="smoothscroll btn btn--stroke">
-                Всі категорії
-            </a>
-            <a href="#" class="smoothscroll btn btn--stroke">
-                Політика
-            </a>
-            <a href="#" class="smoothscroll btn btn--stroke">
-                Бізнес
-            </a>
-            <a href="#" class="smoothscroll btn btn--stroke">
-                Спорт
-            </a>
-            <a href="#" class="smoothscroll btn btn--stroke">
-                Технології
-            </a>
-            <a href="#" class="smoothscroll btn btn--stroke">
-                Автомобілі
-            </a>
-            <a href="#" class="smoothscroll btn btn--stroke">
-                Інше
-            </a>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
         </div>
 
-<div class="row masonry-wrap">
-        <div class="masonry">
-            <div class="masonry__brick">
-                <div class="item-folio">
+    </div>
 
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
-                            @*<img src="~/Images/portfolio/beetle.jpg"
-                                srcset="~/Images/portfolio/beetle.jpg 1x, ~/Images/portfolio/beetle@2x.jpg 2x" alt="">*@
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
+</div><!-- end photoSwipe background -->
 
-                    <a class="item-folio__text action-news">
-                        <h3 class="item-folio__title">
-                            The Beetle
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </a>
+<div id="preloader">
+    <div id="loader"></div>
+</div>
 
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
 
-                    <div class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-lighthouse.jpg" class="thumb-link" title="Lighthouse" data-size="1050x700">
-                            <img src="~/Images/portfolio/lighthouse.jpg"
-                                 srcset="~/Images/portfolio/lighthouse.jpg 1x, ~/Images/portfolio/lighthouse@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Пасивний будинок
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <div class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-salad.jpg" class="thumb-link" data-size="1050x700">
-                            <img src="~/Images/portfolio/salad.jpg"
-                                 srcset="~/Images/portfolio/salad.jpg 1x, ~/Images/portfolio/salad@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Новий ресторан у ІФ
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <span class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </span>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" data-size="1050x700">
-                            <img src="~/Images/portfolio/woodcraft.jpg"
-                                 srcset="~/Images/portfolio/woodcraft.jpg 1x, ~/Images/portfolio/woodcraft@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Меблевий салон знижки
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <span class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </span>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-skaterboy.jpg" class="thumb-link" data-size="1050x700">
-                            <img src="~/Images/portfolio/skaterboy.jpg"
-                                 srcset="~/Images/portfolio/skaterboy.jpg 1x, ~/Images/portfolio/skaterboy@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Спортфест у Іф
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <span class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </span>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-liberty.jpg" class="thumb-link" data-size="1050x700">
-                            <img src="~/Images/portfolio/liberty.jpg"
-                                 srcset="~/Images/portfolio/liberty.jpg 1x, ~/Images/portfolio/liberty@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Новий монумент
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <span class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </span>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-minimalismo.jpg" class="thumb-link" data-size="1050x700">
-                            <img src="~/Images/portfolio/minimalismo.jpg"
-                                 srcset="~/Images/portfolio/minimalismo.jpg 1x, ~/Images/portfolio/minimalismo@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Фотошкола оголошує набір
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <span class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </span>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-            <div class="masonry__brick">
-                <div class="item-folio">
-
-                    <div class="item-folio__thumb">
-                        <a href="~/Images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" data-size="1050x700">
-                            <img src="~/Images/portfolio/shutterbug.jpg"
-                                 srcset="~/Images/portfolio/shutterbug.jpg 1x, ~/Images/portfolio/shutterbug@2x.jpg 2x" alt="">
-                            <span class="shadow-overlay"></span>
-                        </a>
-                    </div>
-
-                    <div class="item-folio__text">
-                        <h3 class="item-folio__title">
-                            Збережемо Карпати
-                        </h3>
-                        <p class="item-folio__cat">
-                            Детальніше ...
-                        </p>
-                    </div>
-
-                    <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                        <i class="im im-link"></i>
-                    </a>
-
-                    <span class="item-folio__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </span>
-
-                </div> <!-- end item-folio -->
-            </div> <!-- end masonry__brick -->
-
-        </div>
-    </div> <!-- end masonry -->
-
-</section>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Summary)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.Raw(item.Summary)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>
+<!-- Java Script
+================================================== -->
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/plugins.js"></script>
+<script src="~/Scripts/main.js"></script>

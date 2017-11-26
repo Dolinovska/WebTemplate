@@ -202,6 +202,15 @@ namespace WebTemplate.MVC.Controllers
 
             return PartialView(tagStat);
         }
+        public PartialViewResult AllTags()
+        {
+            var allTags = this._repository.GetAll<News>().SelectMany(n => n.Tags.Split(News.TagsSeparator));
+            var tagStat = allTags.GroupBy(t => t)
+                .Select(group => new TagStat { Tag = group.Key, Count = group.Count() })
+                .OrderByDescending(t => t.Count);
+
+            return PartialView(tagStat);
+        }
 
         [ChildActionOnly]
         public PartialViewResult PopularNews()

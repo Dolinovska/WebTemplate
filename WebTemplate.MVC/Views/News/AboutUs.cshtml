@@ -1,6 +1,6 @@
-﻿@*@{
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }*@
+﻿@{
+        Layout = null;
+    }
 <!DOCTYPE html>
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
@@ -12,7 +12,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Hola</title>
+    <title>Zvistka</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -35,23 +35,23 @@
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="~/Images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="~/Images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/Images/z-coordinate.png" type="image/x-icon">
+    <link rel="icon" href="~/Images/z-coordinate.png" type="image/x-icon">
 </head>
 
 <body id="top">
     <header class="s-header">
         <nav class="header-nav-wrap pull-left" style="left: 120px; font-family:'librebaskerville-bold', serif; font-size: 4rem;">
             <ul class="header-nav">
-                <li class="current"><a class="smoothscroll" href="#" title="home">Zvistka</a></li>
+                <li><a class="smoothscroll" href="#" title="home">Zvistka</a></li>
             </ul>
         </nav>
 
         <nav class="header-nav-wrap">
             <ul class="header-nav">
-                <li class="current"><a class="smoothscroll" href="#home" title="Головна">Головна</a></li>
+                <li><a class="smoothscroll" href="" title="Головна">Головна</a></li>
                 <li><a class="smoothscroll" href="#works" title="Новини">Новини</a></li>
-                <li><a class="smoothscroll" href="#about" title="Про нас">Про нас</a></li>
+                <li class="current"><a class="smoothscroll" href="#about" title="Про нас">Про нас</a></li>
                 @*<li><a class="smoothscroll" href="#blog" title="Блог">Блог</a></li>*@
                 <li><a class="smoothscroll" href="#contact" title="Контакт">Контакт</a></li>
             </ul>
@@ -60,9 +60,10 @@
         <a class="header-menu-toggle" href="#0"><span>Меню</span></a>
 
     </header> <!-- end s-header -->
+    @*<img src="~/Images/fons/iStock_000011847080_Small-1260x840.jpg" />*@
     <!-- home
     ================================================== -->
-    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="../Images/hero-bg.jpg" data-natural-width="3000" data-natural-height="2000" data-position-y=center>
+    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="../Images/hero-bg.jpg" data-natural-width="3000" data-natural-height="2000" data-position-y="center">
 
         <div class="overlay"></div>
         <div class="shadow-overlay"></div>
@@ -109,9 +110,9 @@
             <li>
                 <a href="#"><i class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a>
             </li>
-            <li>
-                <a href="#"><i class="im im-behance" aria-hidden="true"></i><span>Behance</span></a>
-            </li>
+            @*<li>
+                    <a href="#"><i class="im im-behance" aria-hidden="true"></i><span>Behance</span></a>
+                </li>*@
             <li>
                 <a href="#"><i class="im im-pinterest" aria-hidden="true"></i><span>Pinterest</span></a>
             </li>
@@ -136,10 +137,14 @@
             <div class="col-six tab-full left">
                 <h3>Теги та категорії</h3>
 
-                <p>Lorem ipsum Ut eiusmod ex magna sit dolor esse adipisicing minim ad cupidatat eu veniam nostrud mollit laboris sunt magna velit culpa consectetur nostrud consectetur labore sed do.</p>
+                <p>
+                    Мета: За допомогою нашого порталу читати новини стане набагато зручніше. Тепер Вам не прийдеться перелистувати однакові новини, адже в нас тільки унікальні новини. Ви зможете здійснювати пошук новин за своїми смаками та вподобовання. Також у вас є можливість замовити примірник для свої рідних, друзів, колег.
+                    <br>
+                    Девіз нашого проекту: Ви самі обираєте, що читати
+                </p>
 
                 <p>
-                    Lorem ipsum Nisi officia Duis irure voluptate dolor commodo pariatur occaecat aliquip adipisicing voluptate Ut in qui ea sint occaecat in commodo in in in incididunt ut sunt in Ut Duis in ut ex qui anim cupidatat cupidatat ex in non dolore labore ea amet cillum ea qui dolor nisi sed velit mollit exercitation ex fugiat labore in deserunt culpa laborum culpa anim dolore laboris amet irure mollit proident velit fugiat aute ea elit magna consequat qui officia quis elit Duis dolor esse cupidatat tempor proident voluptate aliqua ex cupidatat do eiusmod veniam irure laborum ut magna nostrud dolore ullamco commodo elit sit magna aliqua laborum veniam officia dolor.
+                    Для того щоб добавити новину Вам потрібно перейти на відповідну сторінку натиснуваши клавішу "Добавити новину". Заповніть обов"язкові поля (назву, зображення, опис новин) та добавте теги, які відповідають вашій новині. Чим більше тегів Ви добавити, тим популярнішою буде ваша стаття.
                 </p>
             </div>
 
@@ -157,15 +162,16 @@
                 <a href="@Url.Action("Create","News")" class="btn btn--primary full-width">Додати новину</a>
             </div>
             <div class="col-six tab-full right">
-                <a href="#0" class="btn full-width">Замовити примірник</a>
+                <a href="#" class="btn full-width">Замовити примірник</a>
             </div>
 
         </div> <!-- end about-content buttons -->
 
-        <div class="row about-content about-content--timeline">
-
-            <div class="col-full text-center">
-                <h3>My Work Experience. Найпопулярніші новини</h3>
+        <div class="row about-content about-content--timeline" style="padding-top: 25px;">
+            <div class="row narrow section-intro has-bottom-sep">
+                <div class="col-full text-center">
+                    <h1>Найпопулярніші новини</h1>
+                </div>
             </div>
 
             @{Html.RenderAction("PopularNews", "News");}
@@ -181,7 +187,7 @@
 
         <div class="row testimonials-header">
             <div class="col-full">
-                <h1 class="h02">What People Say.</h1>
+                <h1 class="h02">Наші джерела</h1>
             </div>
         </div>
 
@@ -190,38 +196,36 @@
             <div class="col-full testimonials__slider">
 
                 <div class="testimonials__slide">
-                    <img src="~/Images/avatars/user-01.jpg" alt="Author image" class="testimonials__avatar">
+                    <img src="~/Images/vezha.png" alt="Author image" class="testimonials__avatar">
                     <p>
-                        Qui ipsam temporibus quisquam velMaiores eos cumque distinctio nam accusantium ipsum.
-                        Laudantium quia consequatur molestias delectus culpa facere hic dolores aperiam. Accusantium quos qui praesentium corpori.
+                        Муніципальна телерадіокомпанія «Вежа» виникла у Івано-­Франківську у листопаді 1999 року.
+                        Метою створення було бажання громади міста та депутатів міської ради мати незалежний та некомерційний засіб масової інформації, зорієнтований на життя міста.
                     </p>
                     <div class="testimonials__author h06">
-                        Tim Cook
-                        <span>CEO, Apple</span>
+                        ТРК Вежа
+                        <span>Івано-Франківськ, Україна</span>
                     </div>
                 </div>
 
                 <div class="testimonials__slide">
-                    <img src="~/Images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
+                    <img src="~/Images/galka.svg.png" alt="Author image" class="testimonials__avatar">
                     <p>
-                        Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
-                        Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam temporibus quisquam vel.
+                        Електронна інформаційно-пізнавальна газета про рідне місто, його жителів та їх життя.
                     </p>
                     <div class="testimonials__author h06">
-                        Sundar Pichai
-                        <span>CEO, Google</span>
+                        Galka.if.ua
+                        <span>Івано-Франківськ, Україна</span>
                     </div>
                 </div>
 
                 <div class="testimonials__slide">
-                    <img src="~/Images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
+                    <img src="~/Images/pravda.png" alt="Author image" class="testimonials__avatar">
                     <p>
-                        Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.
-                        Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.
+                        «ПРАВДА.if.ua»  - це перше незалежне Інтернет-видання Прикарпаття, яке поєднує в собі якості аналітичної агенції новин і реклами Івано-Франківської області.
                     </p>
                     <div class="testimonials__author h06">
-                        Satya Nadella
-                        <span>CEO, Microsoft</span>
+                        «ПРАВДА.if.ua»
+                        <span>Івано-Франківськ, Україна</span>
                     </div>
                 </div>
 
@@ -232,12 +236,12 @@
     </div> <!-- end s-testimonials -->
     <!-- blog
     ================================================== -->
-    <section id="blog" class="s-blog target-section">
+    <section id="blog" class="s-blog target-section" style="padding-top: 5rem;">
 
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full">
                 <h3>Новини</h3>
-                <h1>Найсвіжіші новини ти знайдеш саме тут</h1>
+                <h1>Унікальні новини ти знайдеш саме тут</h1>
 
 
             </div>
@@ -282,12 +286,12 @@
                             <span>Instagram</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#0">
-                            <i class="im im-behance" aria-hidden="true"></i>
-                            <span>Behance</span>
-                        </a>
-                    </li>
+                    @*<li>
+                            <a href="#0">
+                                <i class="im im-behance" aria-hidden="true"></i>
+                                <span>Behance</span>
+                            </a>
+                        </li>*@
                     <li>
                         <a href="#0">
                             <i class="im im-pinterest" aria-hidden="true"></i>

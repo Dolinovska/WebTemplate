@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebTemplate.MVC.ViewModels.TagStat>
+
+
+@foreach (var item in Model)
+{
+    <div class="tags">
+
+        @item.Tag
+        <span class="glyphicon glyphicon-remove" data-role="remove" style="font-size: 12px;"></span>
+    </div>
+}
+<>
+<input type="text" placeholder="Введіть тег" data-role="tagsinput" style="width: 100%; margin: 0px 40px; color: #333" />
+<script>
+    $('input').tagsinput({
+        typeahead: {
+            source: function (query) {
+                return $.getJSON('citynames.json');
+            }
+        }
+    });
+</script>

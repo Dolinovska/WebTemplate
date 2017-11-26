@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\base.css" />
+    <Content Include="Content\bootstrap-tagsinput.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -176,8 +177,24 @@
     <Content Include="Images\contact-bg.jpg" />
     <Content Include="Images\count-bg.jpg" />
     <Content Include="Images\favicon.ico" />
+    <Content Include="Images\fons\2.jpg" />
+    <Content Include="Images\fons\3.jpg" />
+    <Content Include="Images\fons\4.jpg" />
+    <Content Include="Images\fons\5.jpg" />
+    <Content Include="Images\fons\6.jpg" />
+    <Content Include="Images\fons\accountant-blogs.jpg" />
+    <Content Include="Images\fons\IMG_26112017_000149_0.png" />
+    <Content Include="Images\fons\iStock_000011847080_Small-1260x840.jpg" />
+    <Content Include="Images\fons\iStock_000036485476Large-web.jpg" />
+    <Content Include="Images\fons\man-hands-reading-boy.jpg" />
+    <Content Include="Images\fons\o-NEWSPAPERS-facebook.jpg" />
+    <Content Include="Images\fons\reading-newspaper2.jpg" />
+    <Content Include="Images\fons\s3-news-tmp-116020-newspapers-444447_1920--default--1280.jpg" />
+    <Content Include="Images\fons\unnamed.jpg" />
+    <Content Include="Images\galka.svg.png" />
     <Content Include="Images\hero-bg.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\news-2389226_640.png" />
     <Content Include="Images\photoswipe\default-skin.png" />
     <Content Include="Images\photoswipe\default-skin.svg" />
     <Content Include="Images\photoswipe\preloader.gif" />
@@ -206,10 +223,15 @@
     <Content Include="Images\portfolio\skaterboy.jpg" />
     <Content Include="Images\portfolio\woodcraft%402x.jpg" />
     <Content Include="Images\portfolio\woodcraft.jpg" />
+    <Content Include="Images\pravda.png" />
     <Content Include="Images\sample-image.jpg" />
     <Content Include="Images\testimonial-bg.jpg" />
+    <Content Include="Images\vezha.png" />
     <Content Include="Images\wheel-1000.jpg" />
     <Content Include="Images\wheel-500.jpg" />
+    <Content Include="Images\z-coordinate.png" />
+    <Content Include="Scripts\bootstrap-tagsinput-angular.js" />
+    <Content Include="Scripts\bootstrap-tagsinput.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\montserrat\montserrat-black-webfont.woff" />
@@ -310,11 +332,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\News\Counters.cshtml" />
     <Content Include="Views\News\AboutUs.cshtml" />
+    <Content Include="Views\News\AllTags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Images\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
