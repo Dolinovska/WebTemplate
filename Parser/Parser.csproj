@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.6.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.6.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -42,12 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="IParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GalkaParser.cs" />
     <Compile Include="VezhaParser.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Images\Images.csproj">
+      <Project>{fca777f5-acdc-459b-97a1-7b4ac908952f}</Project>
+      <Name>Images</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebTemplate.Database\WebTemplate.Database.csproj">
       <Project>{27e9bd2b-c5c8-40cb-8c83-4b2688a92198}</Project>
       <Name>WebTemplate.Database</Name>
