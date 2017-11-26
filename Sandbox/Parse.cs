@@ -22,24 +22,24 @@ namespace Sandbox
 
             foreach (var article in articles)
             {
-                article.Category = repo.Find<Category>(1);
+                article.Category = repo.GetAll<Category>().FirstOrDefault();
                 repo.Add(article);
 
                 Console.WriteLine(article.Title + " " + article.Text);
             }
 
-            repo.SaveChanges();
+            //repo.SaveChanges();
 
             parser = new GalkaParser();
 
             rssLink = "http://www.galka.if.ua/feed/";
             articles = parser.Parse(rssLink);
 
-            repo = new Repository();
+            //repo = new Repository();
 
             foreach (var article in articles)
             {
-                article.Category = repo.Find<Category>(1);
+                article.Category = repo.GetAll<Category>().FirstOrDefault();
                 repo.Add(article);
 
                 Console.WriteLine(article.Title + " " + article.Text);
