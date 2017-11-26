@@ -39,7 +39,7 @@
         @{Html.RenderAction("MenuList", "Categories");}
     </div>
 
-    <div class="row" style="padding: 25px 0; max-width: 1200px; text-align: center;">        
+    <div class="row" style="padding: 25px 0; max-width: 1200px; text-align: center;">
         @{Html.RenderAction("AllTags", "News");}
     </div>
 
@@ -52,11 +52,13 @@
             <div class="col-full">
                 <h3 style="padding-bottom: 15px">Унікальні новини</h3>
                 <p class="lead">
-                    Оберавши зі списку категорію, яка Вас цікавить і ми знайдемо унікальні новини, які не повторюються.
+                    Ви можете здійснювати пошук за категорією чи тегами, як саме? Оберіть зі списку категорію, яка Вас цікавить і ми знайдемо унікальні новини, які не повторюються, для Вас у межах даної категорії. Щоб здійснити пошук за тегами потрібно ввести тег у відповідне поле.
+                    <br />
+                    @Html.ActionLink("Надрукувати примірник", "Print", "News", new { category = Request.QueryString["category"] }, new { id = "print-link", style = "color: black" })
                 </p>
             </div>
         </div>
-        
+
         <div class="row masonry-wrap" id="news-container" data-category="@Request.QueryString["category"]" style="margin-top: 0.8rem; border-radius: 5px;">
             @Html.Partial("IndexPartial", Model)
         </div>
