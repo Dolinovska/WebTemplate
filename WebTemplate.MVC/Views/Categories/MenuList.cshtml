@@ -3,7 +3,6 @@
 
 @foreach (var item in Model)
 {
-    <li>
-        <a href="?category=@item.Name">@item.Name</a>
-    </li>
+    
+        <a href="?category=@item.Name" class="smoothscroll btn btn--stroke">@item.Name</a>
 }
