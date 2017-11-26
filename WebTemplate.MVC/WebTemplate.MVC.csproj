@@ -344,8 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Images\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Api\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
