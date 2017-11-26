@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="~/Content/vendor.css">
     <link rel="stylesheet" href="~/Content/bootstrap-tagsinput.css">
     <link rel="stylesheet" href="~/Content/main.css">
-
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
     <!-- script
     ================================================== -->
     @*<script src="~/Scripts/modernizr.js"></script>
@@ -40,10 +40,12 @@
         @{Html.RenderAction("MenuList", "Categories");}
     </div>
 
-    <div class="row" style="padding: 25px 0;max-width: 1200px; text-align: center;">
+    <div class="row" style="padding: 25px 0; max-width: 1200px; text-align: center;">
         <h3 class="title">Теги:</h3>
         @{Html.RenderAction("AllTags", "News");}
     </div>
+    
+
 </div>
 
 
@@ -54,7 +56,58 @@
                 <h3>Унікальні новини</h3>
             </div>
         </div>
-        <div class="blog-list block-1-2 block-tab-full" style="background-color: #f1f1f1;">
+        
+        <div class="row masonry-wrap">
+            <div class="masonry">
+            @foreach (var item in Model)
+            {
+                <div class="masonry__brick" style="padding: 6px;">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="~/Images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
+                                <img src="~/Images/portfolio/beetle.jpg"
+                            srcset="~/Images/portfolio/beetle.jpg 1x, ~/Images/portfolio/beetle@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <a class="item-folio__text action-news" href="@Url.Action("Details", "News", new {id = item.Id})" style="text-decoration: none">
+                            <h3 class="item-folio__title">
+                                @item.Title
+                            </h3>
+                            <p>
+                                @Html.Raw(item.Summary)
+                            </p>
+
+                            <div class="blog-cat">
+                                <a href="@Url.Action("Index", "News", new {tags = item.Tags})">@item.Tags</a>
+                            </div>
+                        </a>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+
+                    </div> <!-- end item-folio -->
+                </div>
+                <!-- end masonry__brick -->
+
+
+            }
+            </div>
+        </div>
+        
+        
+        
+        
+        
+
+        @*<div class="blog-list block-1-2 block-tab-full" style="background-color: #f1f1f1;">
             @foreach (var item in Model)
             {
 
@@ -76,15 +129,14 @@
                     </div>
                     <div>
                         <div>
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </div>
-                        <div>
-                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                            <i class="fa fa-plus" aria-hidden="true" style="left: 0"> 1</i>
+                        
+                            <i class="fa fa-share-alt" aria-hidden="true" style="right: 0"> 3</i>
                         </div>
                     </div>
                 </article>
             }
-        </div>
+        </div>*@
     </div>
 </div>
 <footer>

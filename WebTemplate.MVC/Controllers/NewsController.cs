@@ -115,6 +115,12 @@ namespace WebTemplate.MVC.Controllers
 
             return View(newsEditModel);
         }
+        public ActionResult Order()
+        {
+            return View();
+        }
+
+       
 
         public ActionResult Edit(int? id)
         {

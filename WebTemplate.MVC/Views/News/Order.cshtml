@@ -1,0 +1,23 @@
+﻿@using System.Web.UI.WebControls
+@model WebTemplate.MVC.ViewModels.Newss.NewsEditModel
+
+@{
+    ViewBag.Title = "Create";
+}
+<section id="contact" class="s-contact s-contact-create target-section ignore-padding">
+    <div class="row contact__main">
+        <div class="col-ten tab-full contact__form">
+
+            @using (Html.BeginForm("Order", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal" style="padding-top: 30px">
+                    <h4>Замовити версію для друку</h4>
+                    }
+                </div>
+            }
+        </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

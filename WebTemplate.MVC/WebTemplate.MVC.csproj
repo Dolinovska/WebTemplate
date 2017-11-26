@@ -150,6 +150,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts.css" />
     <Content Include="Content\iconic\css\iconmonstr-iconic-font.css" />
     <Content Include="Content\iconic\css\iconmonstr-iconic-font.min.css" />
@@ -333,6 +335,7 @@
     <Content Include="Views\News\Counters.cshtml" />
     <Content Include="Views\News\AboutUs.cshtml" />
     <Content Include="Views\News\AllTags.cshtml" />
+    <Content Include="Views\News\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Images\" />
