@@ -35,7 +35,7 @@
 </head>
 
 <div id="works" class="s-works target-section sector-main">
-    <div class=" row home-content__buttons category-main" style="position: initial;">
+    <div class=" row home-content__buttons category-main" style="position: initial; width: 70%;">
         @{Html.RenderAction("MenuList", "Categories");}
     </div>
 
@@ -57,63 +57,12 @@
             </div>
         </div>
         
-        <div class="row masonry-wrap" id="news-container" data-category="@Request.QueryString["category"]">
+        <div class="row masonry-wrap" id="news-container" data-category="@Request.QueryString["category"]" style="margin-top: 0.8rem; border-radius: 5px;">
             @Html.Partial("IndexPartial", Model);
         </div>
-        
 
-        @*<div class="blog-list block-1-2 block-tab-full" style="background-color: #f1f1f1;">
-                @foreach (var item in Model)
-                {
-
-                    <article class="col-block box-shadow">
-
-                        <div class="blog-date">
-                            <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.PublishDate</a>
-                        </div>
-
-                        <h2 class="h01">
-                            <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.Title</a>
-                        </h2>
-                        <p>
-                            @Html.Raw(item.Summary)
-                        </p>
-
-                        <div class="blog-cat">
-                            <a href="@Url.Action("Index", "News", new {tags = item.Tags})">@item.Tags</a>
-                        </div>
-                        <div>
-                            <div>
-                                <i class="fa fa-plus" aria-hidden="true" style="left: 0"> 1</i>
-
-                                <i class="fa fa-share-alt" aria-hidden="true" style="right: 0"> 3</i>
-                            </div>
-                        </div>
-                    </article>
-                }
-            </div>*@
     </div>
 </div>
-@*<footer>
-
-    <div class="row narrow section-intro has-bottom-sep">
-        <div class="col-full">
-            <h1>Знайди цікаву категорію та тег</h1>
-
-            <p class="lead">
-                Ви можете здійснювати пошук за категорією чи тегами. як саме? Оберавши зі списку категорію, яка Вас цікавить і ми знайдемо унікальні новини, які не повторюються, для Вас у межах даної категорії. Щоб здійснити пошук за тегом потрібно ввести тег у відповідне поле.
-            </p>
-        </div>
-        <div class="row about-content about-content--buttons">
-            <div class="col-six tab-full left">
-                <a href="@Url.Action("Create","News")" class="btn btn--primary full-width">Додати новину</a>
-            </div>
-            <div class="col-six tab-full right">
-                <a href="#0" class="btn full-width">Замовити примірник</a>
-            </div>
-        </div>
-    </div>
-</footer>*@
 
 <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
 

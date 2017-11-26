@@ -3,31 +3,33 @@
 @{
     ViewBag.Title = "Delete";
 }
+<div id="works" class="s-works target-section" style="margin-top: 72px; padding-bottom: 0 !important; padding-top: 0 !important; height: 100%; padding-top: 10px;">
+    <div class="form-horizontal" style="margin: 0 50px 50px">
+        <h2>Видалити категорію</h2>
 
-<h2>Delete</h2>
+        <h3>Ви впевнені, що хочете видалиити категорію?</h3>
+        <div>
+            <h4>Категорія: "@Html.DisplayFor(model => model.Name)"</h4>
+            <hr />
+            @*<dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Category</h4>
-    <hr/>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            </dl>*@
 
-    </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default"/> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color" style="padding-top: 15px;">
+                    <input type="submit" value="Видалити" class="btn btn-default" />
+                </div>
+            }
         </div>
-    }
+    </div>
 </div>
