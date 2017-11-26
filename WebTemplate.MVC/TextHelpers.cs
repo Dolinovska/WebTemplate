@@ -38,7 +38,7 @@ namespace WebTemplate.MVC
 
         public static bool SimilarTo(this string string1, string string2)
         {
-            return LevenshteinDistance(string1, string2) < Math.Min(string1.Length, string2.Length);
+            return LevenshteinDistance(string1, string2) < Math.Min(string1.Length, string2.Length) / 2;
         }
     }
 }
