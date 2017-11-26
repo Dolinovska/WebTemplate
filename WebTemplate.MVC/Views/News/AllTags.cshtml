@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<WebTemplate.MVC.ViewModels.TagStat>
 
 
-@foreach (var item in Model)
-{
-    <div class="tags">
-
+@*<div class="tags">
+    @foreach (var item in Model)
+    {
         @item.Tag
         <span class="glyphicon glyphicon-remove" data-role="remove" style="font-size: 12px;"></span>
-    </div>
-}
-<>
-<input type="text" placeholder="Введіть тег" data-role="tagsinput" style="width: 100%; margin: 0px 40px; color: #333" />
+    }
+</div>*@
 
+
+
+<input type="text" value="@Request.QueryString["tags"]" name="tags" placeholder="Введіть тег" data-role="tagsinput" id="tags-search-input" style="width: 100%; margin: 0px 40px; color: #333" />

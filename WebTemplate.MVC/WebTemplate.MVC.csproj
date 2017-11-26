@@ -301,6 +301,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\News\index.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\respond.js" />
@@ -343,6 +344,7 @@
     <Content Include="Views\News\AboutUs.cshtml" />
     <Content Include="Views\News\AllTags.cshtml" />
     <Content Include="Views\News\Order.cshtml" />
+    <Content Include="Views\News\IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Images\" />
