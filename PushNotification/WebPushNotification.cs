@@ -12,9 +12,9 @@ namespace PushNotification
             var p256dh = sub.P256dh;
             var auth = sub.Auth;
 
-            var subject = "mailto:example@example.com";
-            var publicKey = @"BOf0gGLQJsTBwTuf_SmOebXFVY2Q_hs7WkOxaUJXEvKTaT7NF_WuE4t8xAHvooTsZVDxEMWkBSVTNGC6VtOF-i0";
-            var privateKey = @"-S5wUDqf5I_dBP1FnIRKFve6Lw9ekfZWnZ2me1v3cQ4";
+            var subject = "dmytro.tsiniavskyi@gmail.com";
+            var publicKey = @"BFT8Qom635-BGZB88CrAGF9WB20eH2fl7MWzh03UmnWhJqdQTlgVzAXVfHCR4etLnSH17wiFkdkzUHTOb7BHyLI";
+            var privateKey = @"64_ZQPOFquTjjXDkFrBFf9yAIZa639bQ1QMDLQpzilk";
 
             var subscription = new PushSubscription(pushEndpoint, p256dh, auth);
             var vapidDetails = new VapidDetails(subject, publicKey, privateKey);

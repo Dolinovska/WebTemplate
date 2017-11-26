@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-const applicationServerPublicKey = 'BOf0gGLQJsTBwTuf_SmOebXFVY2Q_hs7WkOxaUJXEvKTaT7NF_WuE4t8xAHvooTsZVDxEMWkBSVTNGC6VtOF-i0';
+const applicationServerPublicKey = 'BFT8Qom635-BGZB88CrAGF9WB20eH2fl7MWzh03UmnWhJqdQTlgVzAXVfHCR4etLnSH17wiFkdkzUHTOb7BHyLI';
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -183,3 +183,20 @@ function updateSubscriptionOnServer(subscription) {
 
 //const notificationPromise = self.registration.showNotification(title, options);
 //event.waitUntil(notificationPromise);
+
+
+var $form = $('#create-news-form');
+var $title = $('#Title');
+
+$form.submit(function () {
+  var self = $(this);
+  console.log('Submit');
+
+  var title = 'Новина!';
+  var options = {
+    body: $title.val()
+  };
+});
+
+var notificationPromise = self.registration.showNotification(title, options);
+event.waitUntil(notificationPromise);

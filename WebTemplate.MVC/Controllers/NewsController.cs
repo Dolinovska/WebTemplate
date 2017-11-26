@@ -10,6 +10,7 @@ namespace WebTemplate.MVC.Controllers
 
     using Images;
     using PushNotification;
+    using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
 
@@ -148,12 +149,18 @@ namespace WebTemplate.MVC.Controllers
                 news.Category = this._repository.Find<Category>(newsEditModel.SelectedCategory);
                 news.Image = _imageManager.Save(newsEditModel.PostedImage);
 
+                news.IsOriginal = true;
+                news.PublishDate = DateTime.Now;
+
+                var length = newsEditModel.Text.Length <= 20 ? newsEditModel.Text.Length : 20;
+                news.Summary = newsEditModel.Text.Substring(0, length);
+
                 _repository.Add(news);
                 _repository.SaveChanges();
 
                 // TODO: Implement!!!
                 var subscription = _repository.GetAll<Subscription>().LastOrDefault();
-                _pushNotification.Push(subscription, news.Title);
+                //_pushNotification.Push(subscription, news.Title);
 
                 return RedirectToAction("Index");
             }

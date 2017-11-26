@@ -300,6 +300,7 @@
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\News\create.js" />
     <Content Include="Scripts\News\index.js" />
     <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\plugins.js" />
