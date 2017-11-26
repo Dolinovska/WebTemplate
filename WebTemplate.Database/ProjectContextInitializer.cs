@@ -14,19 +14,19 @@ namespace WebTemplate.Database
             var category = new Category { Name = "All" };
             category.News = new List<News>();
 
-            var random = new Random();
+            //var random = new Random();
 
-            for (int i = 1; i < 50; i++)
-            {
-                var n = new News {
-                    Title = "News " + i,
-                    Text = random.NextString(200),
-                    Summary = random.NextString(50),
-                    Tags = "Tag1"
-                };
+            //for (int i = 1; i < 50; i++)
+            //{
+            //    var n = new News {
+            //        Title = "News " + i,
+            //        Text = random.NextString(200),
+            //        Summary = random.NextString(50),
+            //        Tags = "Tag1"
+            //    };
 
-                category.News.Add(n);
-            }
+            //    category.News.Add(n);
+            //}
 
             context.Categories.Add(category);
             context.SaveChanges();

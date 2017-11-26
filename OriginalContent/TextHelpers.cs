@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebTemplate.MVC
+namespace OriginalContent
 {
     public  static class TextHelpers
     {
