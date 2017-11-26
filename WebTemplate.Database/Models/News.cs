@@ -31,5 +31,9 @@
         public virtual string Image { get; set; }
 
         public static char TagsSeparator = ',';
+
+        public virtual bool IsOriginal { get; set; }
+
+        public virtual string Duplicates { get; set; }
     }
 }

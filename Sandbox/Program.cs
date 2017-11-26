@@ -6,6 +6,9 @@
         {
             var p = new Parse();
             p.Run();
+
+            var o = new OriginalContent();
+            o.Run();
         }
     }
 }

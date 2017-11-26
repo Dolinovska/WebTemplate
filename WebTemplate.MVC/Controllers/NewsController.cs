@@ -85,17 +85,41 @@ namespace WebTemplate.MVC.Controllers
             var allNews = this._repository.GetAll<News>().Where(n => n.Id != news.Id);
 
             var newsDetailsModel = new NewsDetailsModel(news);
-            foreach (var otherNews in allNews)
+
+            if(string.IsNullOrEmpty(news.Duplicates))
             {
-                if (otherNews.Text.SimilarTo(news.Text))
-                {
-                    newsDetailsModel.DuplicateNews.Add(new DuplicateNews
-                    {
-                        OriginalUrl = otherNews.OriginalUrl,
-                        Source = otherNews.Source
-                    });
-                }
+                newsDetailsModel.DuplicateNews = new List<DuplicateNews>();
             }
+            else
+            {
+                var duplicateIds = news.Duplicates.Split(',').Select(d => {
+                    int duplicateId = 0;
+                    int.TryParse(d, out duplicateId);
+
+                    return duplicateId;
+                });
+
+                var duplicateNews = duplicateIds.Select(_id => _repository.Find<News>(_id));
+
+                newsDetailsModel.DuplicateNews = duplicateNews.Select(dn => new DuplicateNews
+                {
+                    OriginalUrl = dn.OriginalUrl,
+                    Source = dn.Source
+                }).ToList();
+            }
+            
+            //foreach (var otherNews in allNews)
+            //{
+            //    if (otherNews.Text.SimilarTo(news.Text))
+            //    {
+            //        newsDetailsModel.DuplicateNews.Add(new DuplicateNews
+            //        {
+            //            OriginalUrl = otherNews.OriginalUrl,
+            //            Source = otherNews.Source
+            //        });
+            //    }
+            //}
+
             return View(newsDetailsModel);
         }
 
@@ -307,15 +331,15 @@ namespace WebTemplate.MVC.Controllers
 
         private IEnumerable<News> FilterBySimilarContent(IEnumerable<News> newsToFilter)
         {
-            var resultNews = new List<News>();
-            foreach (var news in newsToFilter)
-            {
-                if (!resultNews.Any(rn => rn.Text.SimilarTo(news.Text)))
-                {
-                    resultNews.Add(news);
-                }
-            }
-            return resultNews;
+            //var resultNews = new List<News>();
+            //foreach (var news in newsToFilter)
+            //{
+            //    if (!resultNews.Any(rn => rn.Text.SimilarTo(news.Text)))
+            //    {
+            //        resultNews.Add(news);
+            //    }
+            //}
+            return newsToFilter.Where(n => n.IsOriginal);
         }
     }
 }
