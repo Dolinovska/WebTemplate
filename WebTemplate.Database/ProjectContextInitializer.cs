@@ -2,24 +2,33 @@
 
 namespace WebTemplate.Database
 {
+    using System;
     using System.Collections.Generic;
-
+    using System.Linq;
     using WebTemplate.Database.Models;
 
     public class WebTemplateContextInitializer : DropCreateDatabaseIfModelChanges<WebTemplateContext>
     {
         protected override void Seed(WebTemplateContext context)
         {
-            var category1 = new Category { Name = "All" };
+            var category = new Category { Name = "All" };
+            category.News = new List<News>();
 
-            var news11 = new News { Title = "News 11", Text = "11", Tags = "Tag1,Tag2" };
-            var news12 = new News { Title = "News 12", Text = "11", Tags = "Tag1,Tag3" };
-            var news21 = new News { Title = "News 21", Text = "21", Tags = "Tag2,Tag3" };
-            var news22 = new News { Title = "News 22", Text = "22", Tags = "Tag4,Tag3" };
+            var random = new Random();
 
-            category1.News = new List<News> { news11, news12, news21, news22 };
+            for (int i = 1; i < 50; i++)
+            {
+                var n = new News {
+                    Title = "News " + i,
+                    Text = random.NextString(200),
+                    Summary = random.NextString(50),
+                    Tags = "Tag1"
+                };
 
-            context.Categories.Add(category1);
+                category.News.Add(n);
+            }
+
+            context.Categories.Add(category);
             context.SaveChanges();
         }
     }

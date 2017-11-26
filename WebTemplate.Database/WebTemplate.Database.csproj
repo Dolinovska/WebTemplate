@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Subscription.cs" />
