@@ -12,7 +12,7 @@
     <div class="row contact__main">
         <div class="col-ten tab-full">
 
-            @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Order", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
