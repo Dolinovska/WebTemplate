@@ -1,23 +1,60 @@
 ﻿@using System.Web.UI.WebControls
-@model WebTemplate.MVC.ViewModels.Newss.NewsEditModel
+@model WebTemplate.MVC.ViewModels.Newss.OrderModel
 
 @{
     ViewBag.Title = "Create";
 }
-<section id="contact" class="s-contact s-contact-create target-section ignore-padding">
-    <div class="row contact__main">
-        <div class="col-ten tab-full contact__form">
 
-            @using (Html.BeginForm("Order", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<div class="order-block">
+</div>
+
+<div class="details-block create-block">
+    <div class="row contact__main">
+        <div class="col-ten tab-full">
+
+            @using (Html.BeginForm("Create", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
-                <div class="form-horizontal" style="padding-top: 30px">
-                    <h4>Замовити версію для друку</h4>
-                    }
+
+                <div class="form-horizontal">
+                    <h3 style="margin-top: 0;">Оформити замовлення</h3>
+
+                    @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10 text-row">
+                            @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Text, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullName, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Number, string.Empty, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10 ">
+                            <input type="submit" value="Надіслати" class="btn btn--primary full-width" />
+                        </div>
+                    </div>
                 </div>
             }
+
         </div>
-</section>
+    </div>
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

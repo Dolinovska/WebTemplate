@@ -3,50 +3,53 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>News</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Text)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            <img width="200" height="200" src="~/Data/Images/@Model.Image" />
-        </dd>
-
-
-    </dl>
+<div class="sector-details">
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="details-block">
+    <div class="row section-intro has-bottom-sep" style="padding-bottom: 0">
+        <div class="col-full text-center " >
+            <h1 style="margin: 0">@Model.Title</h1>
+            <div class="blog-date">
+                <a href="@Url.Action("Details", "News", new {id = Model.Id})">@Model.PublishDate</a>
+            </div>
+            @if (!Model.Author.IsEmpty())
+            {
+                <h2>@Model.Author</h2>
+
+            }
+        </div>
+    </div>
+
+    <div class="col-full text-center">
+        <h3 class="ignore-margin">@Model.Text</h3>
+    </div>
+
+    <img class="image-details" src="~/Images/contact-bg.jpg" />
+    @*<img width="200" height="200" src="~/Data/Images/@Model.Image" />*@
+
+    <div class="col-full text-center">
+        <h3 class="ignore-margin">
+            Категорія: @Model.Category
+        </h3>
+        <div class="blog-cat">
+            <a href="@Url.Action("Index", "News", new {tags = Model.Tags})">@Model.Tags</a>
+        </div>
+    </div>
+
+    <div class="col-full text-center">
+        <h3 class="ignore-margin">
+            @foreach (var item in Model.DuplicateNews)
+            {
+                @item
+            }
+        </h3>
+    </div>
+</div>
+
+
+
+
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

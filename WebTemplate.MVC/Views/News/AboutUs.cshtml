@@ -1,6 +1,6 @@
 ﻿@{
-        Layout = null;
-    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <!DOCTYPE html>
 <!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
@@ -26,21 +26,12 @@
     <link rel="stylesheet" href="~/Content/vendor.css">
     <link rel="stylesheet" href="~/Content/main.css">
 
-    <!-- script
-    ================================================== -->
-    @*<script src="~/Scripts/modernizr.js"></script>
-        <script src="~/Scripts/pace.min.js"></script>
-        <script src="~/Scripts/main.js"></script>*@
-
-
-    <!-- favicons
-    ================================================== -->
     <link rel="shortcut icon" href="~/Images/z-coordinate.png" type="image/x-icon">
     <link rel="icon" href="~/Images/z-coordinate.png" type="image/x-icon">
 </head>
 
 <body id="top">
-    <header class="s-header">
+    @*<header class="s-header">
         <nav class="header-nav-wrap pull-left" style="left: 120px; font-family:'librebaskerville-bold', serif; font-size: 4rem;">
             <ul class="header-nav">
                 <li><a class="smoothscroll" href="#" title="home">Zvistka</a></li>
@@ -60,11 +51,8 @@
 
         <a class="header-menu-toggle" href="#0"><span>Меню</span></a>
 
-    </header> <!-- end s-header -->
-    @*<img src="~/Images/fons/iStock_000011847080_Small-1260x840.jpg" />*@
-    <!-- home
-    ================================================== -->
-    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="../Images/hero-bg.jpg" data-natural-width="3000" data-natural-height="2000" data-position-y="center">
+    </header>*@
+    <section id="home" class="s-home page-hero target-section image-block" data-parallax="scroll" data-image-src="../Images/business-2297833_1920.jpg" data-natural-width="3000" data-natural-height="2000" data-position-y="center">
 
         <div class="overlay"></div>
         <div class="shadow-overlay"></div>
@@ -83,10 +71,10 @@
                 </h1>
 
                 <div class="home-content__buttons">
-                    <a href="@Url.Action("Index", "News")" class="btn btn--stroke">
+                    <a href="@Url.Action("Index", "News")" class="btn btn--stroke" style="display: inherit !important;">
                         Наші новини
                     </a>
-                    <a href="#about" class="smoothscroll btn btn--stroke">
+                    <a href="@Url.Action("AboutUs", "News")" class="btn btn--stroke">
                         Про нас
                     </a>
                 </div>
@@ -123,7 +111,8 @@
     </section> <!-- end s-home -->
     <!-- about
     ================================================== -->
-    <section id="about" class="s-about target-section">
+    <section id="about" class="s-about target-section" style="padding-top: 7rem; padding-bottom: 2rem;
+                                                                                                                                                                                                             ">
 
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full text-center">
@@ -242,7 +231,7 @@
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full">
                 <h3>Новини</h3>
-                <h1>Унікальні новини ти знайдеш саме тут</h1>
+                <h1>Унікальні новини Ви знайдете саме у нас</h1>
 
 
             </div>

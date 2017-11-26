@@ -35,7 +35,6 @@
 </head>
 
 <div id="works" class="s-works target-section sector-main">
-
     <div class=" row home-content__buttons category-main" style="position: initial;">
         @{Html.RenderAction("MenuList", "Categories");}
     </div>
@@ -43,7 +42,6 @@
     <div class="row" style="padding: 25px 0; max-width: 1200px; text-align: center;">        
         @{Html.RenderAction("AllTags", "News");}
     </div>
-    
 
 </div>
 
@@ -52,7 +50,10 @@
     <div class="col-full">
         <div class="row narrow section-intro has-bottom-sep" style="padding-top: 50px;">
             <div class="col-full">
-                <h3>Унікальні новини</h3>
+                <h3 style="padding-bottom: 15px">Унікальні новини</h3>
+                <p class="lead">
+                    Ви можете здійснювати пошук за категорією чи тегами, як саме? Оберавши зі списку категорію, яка Вас цікавить і ми знайдемо унікальні новини, які не повторюються, для Вас у межах даної категорії. Щоб здійснити пошук за тегом потрібно ввести тег у відповідне поле.
+                </p>
             </div>
         </div>
         
@@ -62,38 +63,38 @@
         
 
         @*<div class="blog-list block-1-2 block-tab-full" style="background-color: #f1f1f1;">
-            @foreach (var item in Model)
-            {
+                @foreach (var item in Model)
+                {
 
-                <article class="col-block box-shadow">
+                    <article class="col-block box-shadow">
 
-                    <div class="blog-date">
-                        <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.PublishDate</a>
-                    </div>
-
-                    <h2 class="h01">
-                        <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.Title</a>
-                    </h2>
-                    <p>
-                        @Html.Raw(item.Summary)
-                    </p>
-
-                    <div class="blog-cat">
-                        <a href="@Url.Action("Index", "News", new {tags = item.Tags})">@item.Tags</a>
-                    </div>
-                    <div>
-                        <div>
-                            <i class="fa fa-plus" aria-hidden="true" style="left: 0"> 1</i>
-                        
-                            <i class="fa fa-share-alt" aria-hidden="true" style="right: 0"> 3</i>
+                        <div class="blog-date">
+                            <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.PublishDate</a>
                         </div>
-                    </div>
-                </article>
-            }
-        </div>*@
+
+                        <h2 class="h01">
+                            <a href="@Url.Action("Details", "News", new {id = item.Id})">@item.Title</a>
+                        </h2>
+                        <p>
+                            @Html.Raw(item.Summary)
+                        </p>
+
+                        <div class="blog-cat">
+                            <a href="@Url.Action("Index", "News", new {tags = item.Tags})">@item.Tags</a>
+                        </div>
+                        <div>
+                            <div>
+                                <i class="fa fa-plus" aria-hidden="true" style="left: 0"> 1</i>
+
+                                <i class="fa fa-share-alt" aria-hidden="true" style="right: 0"> 3</i>
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>*@
     </div>
 </div>
-<footer>
+@*<footer>
 
     <div class="row narrow section-intro has-bottom-sep">
         <div class="col-full">
@@ -112,7 +113,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>*@
 
 <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
 
