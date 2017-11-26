@@ -205,6 +205,15 @@ footer {
 p iframe {
     max-height: 250px !important;
 }
+td a {
+    color: #FF4500;
+    text-decoration: none;
+}
+td a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
 a {
     color: #fff;
     -webkit-transition: all 0.3s ease-in-out;

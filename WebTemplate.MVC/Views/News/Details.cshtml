@@ -7,8 +7,10 @@
 </div>
 <div class="details-block">
     <div class="row section-intro has-bottom-sep" style="padding-bottom: 0">
-        <div class="col-full text-center " >
-            <h1 style="margin: 0">@Model.Title</h1>
+        <div class="col-full text-center ">
+            <a href="@Model.OriginalUrl" style="text-decoration: none;">
+                <h1 style="margin: 0">@Model.Title</h1>
+            </a>
             <div class="blog-date">
                 <a href="@Url.Action("Details", "News", new {id = Model.Id})">@Model.PublishDate</a>
             </div>
@@ -25,7 +27,7 @@
     </div>
 
     @*<img class="image-details" src="~/Images/contact-bg.jpg" />*@
-    <img class="image-details"  src="~/Data/Images/@Model.Image" />
+    <img class="image-details" src="~/Data/Images/@Model.Image" />
 
     <div class="col-full text-center">
         <h3 class="ignore-margin">
