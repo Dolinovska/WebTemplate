@@ -1,9 +1,8 @@
 ﻿using System.Data.Entity;
+using WebTemplate.Database.Models;
 
 namespace WebTemplate.Database
 {
-    using WebTemplate.Database.Models;
-
     public class WebTemplateContext : DbContext
     {
         public WebTemplateContext()
@@ -13,8 +12,7 @@ namespace WebTemplate.Database
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<News> News { get; set; }
-        public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<Article> News { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

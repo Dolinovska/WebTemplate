@@ -1,9 +1,7 @@
 ﻿namespace WebTemplate.Database
 {
-    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
-    using System.Linq;
 
     public class Repository
     {
@@ -30,12 +28,6 @@
         {
             var dbSet = this._context.Set<T>();
             return dbSet;
-        }
-
-        public IEnumerable<T> Where<T>(Func<T, bool> predicate) where T : class
-        {
-            var dbSet = this._context.Set<T>();
-            return dbSet.Where(predicate);
         }
 
         public void Update<T>(T entity) where T : class

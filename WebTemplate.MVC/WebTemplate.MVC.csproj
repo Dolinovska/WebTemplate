@@ -124,194 +124,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlphanumericComparer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ApiController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HtmlUtilities.cs" />
-    <Compile Include="Models\SaveSubscriptionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\Categories\CategoryEditModel.cs" />
-    <Compile Include="ViewModels\Checkbox.cs" />
     <Compile Include="ViewModels\Counters.cs" />
-    <Compile Include="ViewModels\Newss\NewsDetailsModel.cs" />
-    <Compile Include="ViewModels\Newss\OrderModel.cs" />
-    <Compile Include="ViewModels\Newss\NewsEditModel.cs" />
     <Compile Include="ViewModels\TagStat.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\base.css" />
-    <Content Include="Content\bootstrap-tagsinput.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\fonts.css" />
-    <Content Include="Content\iconic\css\iconmonstr-iconic-font.css" />
-    <Content Include="Content\iconic\css\iconmonstr-iconic-font.min.css" />
-    <Content Include="Content\main.css" />
-    <Content Include="Content\vendor.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Images\avatars\user-01.jpg" />
-    <Content Include="Images\avatars\user-02.jpg" />
-    <Content Include="Images\avatars\user-03.jpg" />
-    <Content Include="Images\avatars\user-04.jpg" />
-    <Content Include="Images\avatars\user-05.jpg" />
-    <Content Include="Images\blog\blog-bg-01.jpg" />
-    <Content Include="Images\blog\blog-bg-02.jpg" />
-    <Content Include="Images\business-2297833_1920.jpg" />
-    <Content Include="Images\contact-bg.jpg" />
-    <Content Include="Images\count-bg.jpg" />
-    <Content Include="Images\favicon.ico" />
-    <Content Include="Images\fons\2.jpg" />
-    <Content Include="Images\fons\3.jpg" />
-    <Content Include="Images\fons\4.jpg" />
-    <Content Include="Images\fons\5.jpg" />
-    <Content Include="Images\fons\6.jpg" />
-    <Content Include="Images\accountant-blogs.jpg" />
-    <Content Include="Images\fons\IMG_26112017_000149_0.png" />
-    <Content Include="Images\fons\iStock_000011847080_Small-1260x840.jpg" />
-    <Content Include="Images\fons\iStock_000036485476Large-web.jpg" />
-    <Content Include="Images\man-hands-reading-boy.jpg" />
-    <Content Include="Images\fons\o-NEWSPAPERS-facebook.jpg" />
-    <Content Include="Images\fons\reading-newspaper2.jpg" />
-    <Content Include="Images\fons\s3-news-tmp-116020-newspapers-444447_1920--default--1280.jpg" />
-    <Content Include="Images\fons\unnamed.jpg" />
-    <Content Include="Images\galka.svg.png" />
-    <Content Include="Images\hero-bg.jpg" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\news-2389226_640.png" />
-    <Content Include="Images\photoswipe\default-skin.png" />
-    <Content Include="Images\photoswipe\default-skin.svg" />
-    <Content Include="Images\photoswipe\preloader.gif" />
-    <Content Include="Images\portfolio\beetle%402x.jpg" />
-    <Content Include="Images\portfolio\beetle.jpg" />
-    <Content Include="Images\portfolio\gallery\g-beetle.jpg" />
-    <Content Include="Images\portfolio\gallery\g-bicycle.jpg" />
-    <Content Include="Images\portfolio\gallery\g-liberty.jpg" />
-    <Content Include="Images\portfolio\gallery\g-lighthouse.jpg" />
-    <Content Include="Images\portfolio\gallery\g-minimalismo.jpg" />
-    <Content Include="Images\portfolio\gallery\g-salad.jpg" />
-    <Content Include="Images\portfolio\gallery\g-shutterbug.jpg" />
-    <Content Include="Images\portfolio\gallery\g-skaterboy.jpg" />
-    <Content Include="Images\portfolio\gallery\g-woodcraft.jpg" />
-    <Content Include="Images\portfolio\liberty%402x.jpg" />
-    <Content Include="Images\portfolio\liberty.jpg" />
-    <Content Include="Images\portfolio\lighthouse%402x.jpg" />
-    <Content Include="Images\portfolio\lighthouse.jpg" />
-    <Content Include="Images\portfolio\minimalismo%402x.jpg" />
-    <Content Include="Images\portfolio\minimalismo.jpg" />
-    <Content Include="Images\portfolio\salad%402x.jpg" />
-    <Content Include="Images\portfolio\salad.jpg" />
-    <Content Include="Images\portfolio\shutterbug%402x.jpg" />
-    <Content Include="Images\portfolio\shutterbug.jpg" />
-    <Content Include="Images\portfolio\skaterboy%402x.jpg" />
-    <Content Include="Images\portfolio\skaterboy.jpg" />
-    <Content Include="Images\portfolio\woodcraft%402x.jpg" />
-    <Content Include="Images\portfolio\woodcraft.jpg" />
-    <Content Include="Images\pravda.png" />
-    <Content Include="Images\sample-image.jpg" />
-    <Content Include="Images\testimonial-bg.jpg" />
-    <Content Include="Images\vezha.png" />
-    <Content Include="Images\wheel-1000.jpg" />
-    <Content Include="Images\wheel-500.jpg" />
-    <Content Include="Images\z-coordinate.png" />
-    <Content Include="Scripts\bootstrap-tagsinput-angular.js" />
-    <Content Include="Scripts\bootstrap-tagsinput.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="fonts\montserrat\montserrat-black-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-black-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-bold-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-bold-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-extrabold-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-extrabold-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-extralight-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-extralight-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-light-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-light-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-medium-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-medium-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-regular-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-regular-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-semibold-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-semibold-webfont.woff2" />
-    <Content Include="fonts\montserrat\montserrat-thin-webfont.woff" />
-    <Content Include="fonts\montserrat\montserrat-thin-webfont.woff2" />
-    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.eot" />
-    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.ttf" />
-    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.woff" />
-    <Content Include="Content\iconic\fonts\iconmonstr-iconic-font.woff2" />
-    <Content Include="fonts\Roboto-Black.ttf" />
-    <Content Include="fonts\Roboto-BlackItalic.ttf" />
-    <Content Include="fonts\Roboto-Bold.ttf" />
-    <Content Include="fonts\Roboto-BoldItalic.ttf" />
-    <Content Include="fonts\Roboto-Italic.ttf" />
-    <Content Include="fonts\Roboto-Light.ttf" />
-    <Content Include="fonts\Roboto-LightItalic.ttf" />
-    <Content Include="fonts\Roboto-Medium.ttf" />
-    <Content Include="fonts\Roboto-MediumItalic.ttf" />
-    <Content Include="fonts\Roboto-Regular.ttf" />
-    <Content Include="fonts\Roboto-Thin.ttf" />
-    <Content Include="fonts\Roboto-ThinItalic.ttf" />
-    <Content Include="fonts\RobotoCondensed-Bold.ttf" />
-    <Content Include="fonts\RobotoCondensed-BoldItalic.ttf" />
-    <Content Include="fonts\RobotoCondensed-Italic.ttf" />
-    <Content Include="fonts\RobotoCondensed-Light.ttf" />
-    <Content Include="fonts\RobotoCondensed-LightItalic.ttf" />
-    <Content Include="fonts\RobotoCondensed-Regular.ttf" />
-    <Content Include="fonts\librebaskerville\librebaskerville-bold-webfont.woff" />
-    <Content Include="fonts\librebaskerville\librebaskerville-bold-webfont.woff2" />
-    <Content Include="fonts\librebaskerville\librebaskerville-italic-webfont.woff" />
-    <Content Include="fonts\librebaskerville\librebaskerville-italic-webfont.woff2" />
-    <Content Include="fonts\librebaskerville\librebaskerville-regular-webfont.woff" />
-    <Content Include="fonts\librebaskerville\librebaskerville-regular-webfont.woff2" />
-    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.2.1.js" />
-    <Content Include="Scripts\jquery-3.2.1.min.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <None Include="Properties\PublishProfiles\strichka - Web Deploy.pubxml" />
+    <Content Include="Properties\webjobs-list.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\main.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\modernizr.js" />
-    <Content Include="Scripts\News\create.js" />
-    <Content Include="Scripts\News\index.js" />
-    <Content Include="Scripts\pace.min.js" />
-    <Content Include="Scripts\plugins.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Shared\layout.js" />
-    <Content Include="Scripts\Shared\push.js" />
-    <Content Include="Scripts\Shared\sw.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -321,49 +166,26 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\News\Create.cshtml" />
-    <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Categories\MenuList.cshtml" />
-    <Content Include="Views\News\PopularTags.cshtml" />
-    <Content Include="Views\News\PopularNews.cshtml" />
-    <Content Include="Views\News\LatestNews.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\News\Counters.cshtml" />
-    <Content Include="Views\News\AboutUs.cshtml" />
-    <Content Include="Views\News\AllTags.cshtml" />
-    <Content Include="Views\News\Order.cshtml" />
-    <Content Include="Views\News\IndexPartial.cshtml" />
-    <Content Include="Views\News\Print.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Articles\Details.cshtml" />
+    <Content Include="Views\Articles\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Images\" />
-    <Folder Include="Views\Api\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Images\Images.csproj">
-      <Project>{FCA777F5-ACDC-459B-97A1-7B4AC908952F}</Project>
-      <Name>Images</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PushNotification\PushNotification.csproj">
-      <Project>{bd56c6cb-a40b-490d-a44d-9ec71e450511}</Project>
-      <Name>PushNotification</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebTemplate.Database\WebTemplate.Database.csproj">
       <Project>{27E9BD2B-C5C8-40CB-8C83-4B2688A92198}</Project>
       <Name>WebTemplate.Database</Name>
@@ -383,7 +205,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1338</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -404,6 +226,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+  <Import Project="..\packages\Microsoft.Web.WebJobs.Publish.1.1.0\tools\webjobs.targets" Condition="Exists('..\packages\Microsoft.Web.WebJobs.Publish.1.1.0\tools\webjobs.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

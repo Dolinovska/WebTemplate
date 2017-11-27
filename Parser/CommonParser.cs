@@ -1,5 +1,4 @@
-﻿using HtmlAgilityPack;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Xml;
@@ -8,16 +7,25 @@ using WebTemplate.Database.Models;
 
 namespace Parser
 {
-    public class VezhaParser : IParser
+    public abstract class CommonParser
     {
-        public List<Article> Parse(string url)
+        public string Source { get; }
+        public string Url { get; }
+
+        protected CommonParser(string source, string url)
+        {
+            Source = source;
+            Url = url;
+        }
+
+        public List<Article> Parse()
         {
             var result = new List<Article>();
 
-            using (var reader = XmlReader.Create(url))
+            using (var reader = XmlReader.Create(Url))
             {
                 var feed = SyndicationFeed.Load(reader);
-                var xmldoc = XDocument.Load(url);
+                var xmldoc = XDocument.Load(Url);
 
                 foreach (var item in feed.Items)
                 {
@@ -28,8 +36,9 @@ namespace Parser
                         Tags = string.Join(Article.TagsSeparator.ToString(), item.Categories.Select(c => c.Name)),
                         PublishDate = item.PublishDate.UtcDateTime,
                         OriginalUrl = item.Id,
-                        Source = "Телерадіокомпанія \"ВЕЖА\""
+                        Source = Source
                     };
+
 
                     // Set article text
                     XNamespace content = "http://purl.org/rss/1.0/modules/content/";
@@ -39,10 +48,10 @@ namespace Parser
                     var txt = elements.FirstOrDefault(e => e.Element("guid").Value == item.Id).Element(content.GetName("encoded")).Value;
                     article.Text = txt;
 
+
                     result.Add(article);
                 }
             }
-
             return result;
         }
     }
