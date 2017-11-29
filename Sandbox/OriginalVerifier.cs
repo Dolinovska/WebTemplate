@@ -13,34 +13,22 @@ namespace WebTemplate.Parser
             var repository = new Repository();
             var allArticles = repository.GetAll<Article>();
 
-            var duplicates = new List<Article>();
+            article.IsOriginal = true;
             foreach (var dbArticle in allArticles)
             {
-                if (article.Source == dbArticle.Source || article.Text == null ||
-                    dbArticle.Text == null)
+                if (article.Source == dbArticle.Source || article.Title == null || dbArticle.Title == null)
                 {
                     continue;
                 }
 
                 Console.WriteLine($"Compare {article.Id} with {dbArticle.Id}");
 
-                if (article.Text.SimilarTo(dbArticle.Text))
+                if (article.Title.SimilarTo(dbArticle.Title))
                 {
-                    duplicates.Add(dbArticle);
+                    article.IsOriginal = false;
+                    article.OriginalActicleId = dbArticle.Id;
+                    break;
                 }
-
-            }
-
-            if (duplicates.Any())
-            {
-                article.IsOriginal = false;
-                article.Duplicates = string.Join(",", duplicates.Select(d => d.Id));
-            }
-
-            else
-            {
-                article.IsOriginal = true;
-                article.Duplicates = null;
             }
             return article;
         }

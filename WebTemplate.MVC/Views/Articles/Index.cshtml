@@ -1,79 +1,57 @@
-﻿@model IEnumerable<WebTemplate.Database.Models.Article>
+﻿@model PagedList.IPagedList<WebTemplate.Database.Models.Article>
+@using PagedList.Mvc;
 
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tags)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OriginalUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Summary)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PublishDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ViewsCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Source)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsOriginal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Duplicates)
-        </th>
-        <th></th>
-    </tr>
+<div class="jumbotron">
+    <h1>Звістка</h1>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tags)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OriginalUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Summary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublishDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ViewsCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Source)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsOriginal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duplicates)
-        </td>
-    </tr>
-}
 
-</table>
+
+<div class="row">
+    <div class="col-md-9">
+        @using (Html.BeginForm("Index", "Acticles", FormMethod.Get))
+        {
+            <p>
+                Find by text: @Html.TextBox("SearchString")
+                <input class="btn btn-default" type="submit" value="Search" />
+            </p>
+        }
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+    </div>
+    <div class="col-md-1">
+        @Html.ActionLink("Views", "Index", new { sortOrder = ViewBag.ViewsSortParm })
+    </div>
+</div>
+
+<div class="row">
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        var item = Model[i];
+        <div class="col-md-4">
+            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+            <p>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </p>
+            <p><a class="btn btn-default" href="@Html.DisplayFor(modelItem => item.OriginalUrl)">@Html.DisplayFor(modelItem => item.Source)</a></p>
+            <p>@Html.DisplayFor(modelItem => item.Tags) @Html.DisplayFor(modelItem => item.PublishDate) </p>
+            <p>View: @Html.DisplayFor(modelItem => item.ViewsCount)</p>
+        </div>
+
+    }
+</div>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

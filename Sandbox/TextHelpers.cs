@@ -2,7 +2,9 @@
 
 namespace WebTemplate.Parser
 {
-    public  static class TextHelpers
+    using System.Collections.Generic;
+
+    public static class TextHelpers
     {
         public static int LevenshteinDistance(string string1, string string2)
         {
@@ -38,7 +40,17 @@ namespace WebTemplate.Parser
 
         public static bool SimilarTo(this string string1, string string2)
         {
-            return LevenshteinDistance(string1, string2) < Math.Min(string1.Length, string2.Length) / 1.5;
+            foreach (var remove in Common)
+            {
+                string1 = string1.Replace(remove, string.Empty);
+                string2 = string2.Replace(remove, string.Empty);
+            }
+            return LevenshteinDistance(string1, string2) < Math.Min(string1.Length, string2.Length) / 2;
         }
+
+        private static List<string> Common = new List<string>()
+                                                 {
+                                                     "В Івано-Франківську", "У Івано-Франківську", "На Прикарпатті", "У Франківську"
+                                                 };
     }
 }

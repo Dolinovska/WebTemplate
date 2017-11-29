@@ -30,6 +30,6 @@
 
         public virtual bool IsOriginal { get; set; }
 
-        public virtual string Duplicates { get; set; }
+        public virtual int OriginalActicleId { get; set; }
     }
 }
